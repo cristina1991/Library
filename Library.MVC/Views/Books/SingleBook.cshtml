@@ -1,0 +1,72 @@
+﻿@model Library.Data.Entities.Book
+
+@{ 
+    ViewBag.Title = "Book";
+}
+
+<div class="site-container">
+    <div class="row">
+        <div class="page-title col-md-9">Book</div>
+        <div class="button-right col-md-3">
+            @Html.ActionLink("Edit", "Edit", new { bookId = Model.Id }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+    <hr />
+
+   
+    <div class="row singleBookContainer">
+        <div class="col-md-6 singleBookPhoto">
+            <img src="#" />
+        </div>
+        <div class="col-md-6 singleBookDetails">
+
+            <div class="book-title">
+                @Html.DisplayFor(model => model.Title)
+            </div>
+
+            <div class="book-author">
+               by
+                @Html.DisplayFor(model => model.Author.Name)
+            </div>
+            <i class="fas fa-heart"></i>
+           
+
+            <div class="book-additional-info">
+                <div class="book-publisher">
+                    <span>Publisher:</span>
+                    @Html.DisplayFor(model => model.Publisher)
+                </div>
+
+                <div class="book-genre">
+                    <span>Genre:</span>
+                    @Html.DisplayFor(model => model.Genre.Name)
+                </div>
+
+                <div class="book-release">
+                    <span>Release:</span>
+                    @Html.DisplayFor(model => model.Release)
+                </div>
+
+                <div class="book-rating">
+                    <span>Rating:</span>
+                    @Html.DisplayFor(model => model.Rating)
+                </div>
+
+                <div class="book-pages">
+                    <span>Pages:</span>
+                    @Html.DisplayFor(model => model.Pages)
+                </div>
+                <div class="book-description">
+                    <span>Description:</span>
+                    @Html.DisplayFor(model => model.Description)
+                </div>
+            </div>
+          
+        </div>
+    
+    </div>
+    <hr />
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+</div>
+
+

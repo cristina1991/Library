@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Library.Data.Entities.Book>
+
+@{ 
+    ViewBag.Title = "Books";
+}
+
+
+<div class="site-container">
+    <div class="row every-page-header">
+        <div class="page-title col-md-9">Books</div>
+        <div class="button-right col-md-3">
+            @Html.ActionLink("Add Book", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
+        </div>
+    </div>
+    <div class="row ">
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("SingleBook", "Books", new { bookId = item.Id })">
+                <div class="col-md-3 booksContainer" id="bookContainer_@item.Id">
+                    <div class="bordered-entity">
+                        <img class="bookImage" src="#" />
+
+                        <div class="row entity-rows">
+                            <div class="col-md-3">Title:</div>
+                            <div class="col-md-9">@item.Title</div>
+                        </div>
+
+                        <div class="row entity-rows">
+                            <div class="col-md-3">Author:</div>
+                            <div class="col-md-9">@item.Author.Name</div>
+                        </div>
+
+                        <div class="row entity-rows">
+                            <div class="col-md-3">Genre:</div>
+                            <div class="col-md-9">@item.Genre.Name</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+
+<div class="modalInfo">
+    @Html.Partial("DeleteBookModal")
+</div>
+
+@*<table class="table">
+    <tr>
+        <th> @Html.Label("Title") </th>
+        <th> @Html.Label("Genre") </th>
+        <th> @Html.Label("Author") </th>
+        <th> @Html.Label("Description") </th>
+        <th> @Html.Label("Release") </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.Title </td>
+            <td> @item.Genre.Name </td>
+            <td> @item.Author.LastName @item.Author.FirstName </td>
+            <td> @item.Description </td>
+            <td> @item.Release </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { bookId = item.Id })
+                <button id="deleteBook_@item.Id" class="btn-primary deletesBook" type="button">Delete</button>
+            </td>
+        </tr>
+    }
+</table>*@
+
+
+
