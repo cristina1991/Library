@@ -118,7 +118,7 @@ namespace UniLibrary.Controllers
 
                     //Save in database
                     var book = bookService.FindBookById(bookId);
-                    book.ImgPath = path;
+                    book.ImgPath = directory+fileName;
                     bookService.UpdateBook(book);
 
                     return Json(new { success = true });

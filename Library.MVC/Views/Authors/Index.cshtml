@@ -6,27 +6,27 @@
 
 <div class="row site-container">
     <div class="row every-page-header">
-        <div class="page-title col-md-9">Authors</div>
+        <div class="page-title col-md-9">Autori</div>
         <div class="button-right col-md-3">
-            @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
+            @Html.ActionLink("Adauga un autor", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
         </div>
     </div>
     <table class="table">
         <tr>
             <th>
-                @Html.Label("Full Name")
+                @Html.Label("Nume si Prenume")
             </th>
             <th>
-                @Html.Label("Genres")
+                @Html.Label("Genuri")
             </th>
             <th>
-                @Html.Label("Born In")
+                @Html.Label("Nascut in")
             </th>
             <th>
-                @Html.Label("Is From")
+                @Html.Label("Oras")
             </th>
             <th>
-                @Html.Label("Photo")
+                @Html.Label("Imagine")
             </th>
             <th></th>
         </tr>
@@ -46,13 +46,13 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.City)
                 </td>
-                <td>
+                <td class="index-author-image">
                     <img src="@item.ImgPath" alt="author"/>
                 </td>
                 <td class="">
                     <div class="action-buttons-right">
-                        @Html.ActionLink("Edit", "Edit", new { authorId = item.Id }, new { @class = "btn btn-primary" })
-                        <button id="deleteAuthor_@item.Id" class="btn btn-primary deletesAuthor" type="button">Delete</button>
+                        @Html.ActionLink("Modifica", "Edit", new { authorId = item.Id }, new { @class = "btn btn-primary" })
+                        <button id="deleteAuthor_@item.Id" class="btn btn-primary deletesAuthor" type="button">Sterge</button>
                     </div>
                 </td>
             </tr>

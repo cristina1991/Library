@@ -4,7 +4,7 @@
     ViewBag.Title = "Genre";
 }
 
-<div class="site-container">
+<div class="row site-container">
     <div class="row every-page-header">
         <div class="page-title col-md-9">Genres</div>
         <div class="button-right col-md-3">
@@ -27,8 +27,10 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { genreId = item.Id }, new { @class = "btn btn-primary" }) 
-                    <button id="deleteGenre_@item.Id" class="btn btn-primary deletesGenre" type="button">Delete</button>
+                    <div class="action-buttons-right">
+                        @Html.ActionLink("Edit", "Edit", new { genreId = item.Id }, new { @class = "btn btn-primary" })
+                        <button id="deleteGenre_@item.Id" class="btn btn-primary deletesGenre" type="button">Delete</button>
+                    </div>
                 </td>
             </tr>
         }

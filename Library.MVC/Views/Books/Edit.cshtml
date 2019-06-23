@@ -10,7 +10,7 @@
 
     <div class="row site-container">
         <div class="page-title">
-            Edit Book
+            Modifica
         </div>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -23,7 +23,7 @@
                 <div class="crud-book-layout">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="row form-group">
-                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.Title,"Titlu", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="row form-group">
-                        @Html.LabelFor(model => model.Publisher, "Publisher", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.Publisher, "Editura", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.Publisher, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Publisher, "", new { @class = "text-danger" })
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="row form-group">
-                        @Html.LabelFor(model => model.Release, "Release Year", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.Release, "Publicata", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.Release, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Release, "", new { @class = "text-danger" })
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="row form-group">
-                        @Html.LabelFor(model => model.GenreId, "Genre", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.GenreId, "Gen", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.DropDownListFor(model => model.GenreId, new SelectList(ViewBag.Genres, "Id", "Name"), "Please select", htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.GenreId, "", new { @class = "text-danger" })
@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="row form-group">
-                        @Html.LabelFor(model => model.AuthorId, "Author", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.AuthorId, "Autor", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.DropDownListFor(model => model.AuthorId, new SelectList(ViewBag.Authors, "Id", "Name"), "Please select", htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.AuthorId, "", new { @class = "text-danger" })
@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="row form-group">
-                        @Html.LabelFor(model => model.Pages, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.Pages,"Pagini", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.Pages, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Pages, "", new { @class = "text-danger" })
@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="row form-group">
-                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.Description,"Descriere", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @rows = 4 })
                             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
@@ -80,8 +80,8 @@
 
                     <div class="row form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <div class="btn btn-primary addBookImages" id="addBookImage_@Model.Id">Add Image</div>
-                            <input type="submit" value="Update" class="btn btn-primary" />
+                            <div class="btn btn-primary addBookImages" id="addBookImage_@Model.Id">Adauga imagine</div>
+                            <input type="submit" value="Salveaza" class="btn btn-primary" />
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
         </div>
         <hr />
         <div>
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Inapoi la Carti", "Index", null, new { @class = "btn btn-default" })
         </div>
         <input id="inputBookPhotoUpload" type="file" accept="image/*" data-bookId="" style="display:none" hidden />
     </div>

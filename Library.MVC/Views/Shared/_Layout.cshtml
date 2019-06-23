@@ -4,12 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+   
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <link rel="shortcut icon" href="#" />
     <title>@ViewBag.Title - UniLibrary</title>
     @Styles.Render("~/Content/css")
+
     @Scripts.Render("~/bundles/modernizr")
 
+    @Styles.Render("~/Content/fontawesomeCss")
+    @Scripts.Render("~/Content/fontawesomeJs")
+
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">*@
 </head>
 <body>
 
@@ -20,7 +26,7 @@
                     <div class="col-md-6">
                         <a class="clickable-logo" href='@Url.Action("Index","Home")'>
                             <img src="~/Content/Images/book.png" />
-                            <div class="logo-text">UniLibrary</div>
+                            <div class="logo-text">Libraria Universitatii</div>
                         </a>
                     </div>
                     <div class="col-md-6 loginOptions">
@@ -40,12 +46,12 @@
                 </button>
                 @Html.ActionLink("Biblioteca Online", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse site-main-tabs">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Books", "Index", "Books")</li>
-                    <li>@Html.ActionLink("Authors", "Index", "Authors")</li>
-                    <li>@Html.ActionLink("Genres", "Index", "Genres")</li>
-                    <li>@Html.ActionLink("Favourites", "Index", "Favourites")</li>
+                    <li>@Html.ActionLink("Carti", "Index", "Books")</li>
+                    <li>@Html.ActionLink("Autori", "Index", "Authors")</li>
+                    <li>@Html.ActionLink("Genuri", "Index", "Genres")</li>
+                    <li>@Html.ActionLink("Favorite", "Index", "Favourites")</li>
                     <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
                 </ul>
             </div>

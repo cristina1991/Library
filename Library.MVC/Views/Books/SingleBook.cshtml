@@ -13,7 +13,6 @@
     </div>
     <hr />
 
-   
     <div class="row singleBookContainer">
         <div class="col-md-6 singleBookPhoto">
             <img src="#" />
@@ -25,45 +24,55 @@
             </div>
 
             <div class="book-author">
-               by
+               de
                 @Html.DisplayFor(model => model.Author.Name)
+                <i class="fas fa-user-edit"></i>
+                <i class="fa fas-user-edit"></i>
+                <i class="far fa-angry"></i>
             </div>
-            <i class="fas fa-heart"></i>
-           
-
             <div class="book-additional-info">
                 <div class="book-publisher">
-                    <span>Publisher:</span>
+                    <span>Editura:</span>
                     @Html.DisplayFor(model => model.Publisher)
                 </div>
 
                 <div class="book-genre">
-                    <span>Genre:</span>
+                    <span>Gen:</span>
                     @Html.DisplayFor(model => model.Genre.Name)
                 </div>
 
                 <div class="book-release">
-                    <span>Release:</span>
+                    <span>Publicata:</span>
                     @Html.DisplayFor(model => model.Release)
                 </div>
 
                 <div class="book-rating">
-                    <span>Rating:</span>
+                    <span>Evaluat:</span>
                     @Html.DisplayFor(model => model.Rating)
                 </div>
 
                 <div class="book-pages">
-                    <span>Pages:</span>
+                    <span>Pagini:</span>
                     @Html.DisplayFor(model => model.Pages)
                 </div>
                 <div class="book-description">
-                    <span>Description:</span>
+                    <span>Descriere:</span>
                     @Html.DisplayFor(model => model.Description)
                 </div>
             </div>
-          
         </div>
-    
+    </div>
+    <div class="row">
+        @if (Model.Reviews != null && Model.Reviews.Count > 0)
+        {
+            <div class="">
+                Recenzii
+            </div>
+        }
+        else
+        {
+            <p>Aceasta carte nu are nicio recenzie</p>
+        }
     </div>
     <hr />
     @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })

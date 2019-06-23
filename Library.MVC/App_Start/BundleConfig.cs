@@ -26,9 +26,16 @@ namespace Library.MVC
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/fontawesomeCss").Include(
+                      "~/Content/fontawesome/css/fonts/fontawesome.min.css"));
+
+            bundles.Add(new ScriptBundle("~/Content/fontawesomeJs").Include(
+                      "~/Content/fontawesome/js/fontawesome.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/appScripts").Include(
                       "~/Scripts/ApplicationScripts/General.js",
-                      "~/Scripts/ApplicationScripts/Books.js"
+                      "~/Scripts/ApplicationScripts/Books.js",
+                      "~/Scripts/ApplicationScripts/Authors.js"
                 ));
         }
     }

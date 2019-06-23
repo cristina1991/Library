@@ -7,9 +7,9 @@
 
 <div class="row site-container">
     <div class="row every-page-header">
-        <div class="page-title col-md-9">Books</div>
+        <div class="page-title col-md-9">Carti</div>
         <div class="button-right col-md-3">
-            @Html.ActionLink("Add Book", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
+            @Html.ActionLink("Adauga o carte", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
         </div>
     </div>
     <div class="row ">
@@ -18,20 +18,20 @@
             <a href="@Url.Action("SingleBook", "Books", new { bookId = item.Id })">
                 <div class="col-md-3 booksContainer" id="bookContainer_@item.Id">
                     <div class="bordered-entity">
-                        <img class="bookImage" src="#" />
+                        <img class="bookImage" src="@item.ImgPath" />
 
                         <div class="row entity-rows">
-                            <div class="col-md-3">Title:</div>
+                            <div class="col-md-3">Titlu:</div>
                             <div class="col-md-9">@item.Title</div>
                         </div>
 
                         <div class="row entity-rows">
-                            <div class="col-md-3">Author:</div>
+                            <div class="col-md-3">Autor:</div>
                             <div class="col-md-9">@item.Author.Name</div>
                         </div>
 
                         <div class="row entity-rows">
-                            <div class="col-md-3">Genre:</div>
+                            <div class="col-md-3">Gen:</div>
                             <div class="col-md-9">@item.Genre.Name</div>
                         </div>
                     </div>

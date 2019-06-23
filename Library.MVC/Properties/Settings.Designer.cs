@@ -31,5 +31,14 @@ namespace Library.MVC.Properties {
                 return ((string)(this["Books"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Content\\Images\\Authors\\")]
+        public string Authors {
+            get {
+                return ((string)(this["Authors"]));
+            }
+        }
     }
 }
