@@ -9,8 +9,7 @@
     <title>@ViewBag.Title - UniLibrary</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/appScripts")
-    @Styles.Render("~/Content/fontawesome")
+
 </head>
 <body>
 
@@ -39,15 +38,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Online Bibliotheca", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Biblioteca Online", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Books", "Index", "Books")</li>
                     <li>@Html.ActionLink("Authors", "Index", "Authors")</li>
                     <li>@Html.ActionLink("Genres", "Index", "Genres")</li>
-                    @*<li>@Html.ActionLink("Favourites", "Index", "Favourites")</li>
-                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>*@
+                    <li>@Html.ActionLink("Favourites", "Index", "Favourites")</li>
+                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
                 </ul>
             </div>
         </div>
@@ -55,13 +54,16 @@
     <div class="clearfix"></div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - UniLibrary - Mihaes Eusebiu</p>
+        <footer class="row">
+            <p>
+                Site creat in scopul sustinerii disertatiei <br />
+                &copy; @DateTime.Now.Year - Mihaes Eusebiu
+            </p>
         </footer>
     </div>
-
+   
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/appScripts")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

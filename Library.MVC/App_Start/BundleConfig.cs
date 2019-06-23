@@ -25,6 +25,11 @@ namespace Library.MVC
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/appScripts").Include(
+                      "~/Scripts/ApplicationScripts/General.js",
+                      "~/Scripts/ApplicationScripts/Books.js"
+                ));
         }
     }
 }

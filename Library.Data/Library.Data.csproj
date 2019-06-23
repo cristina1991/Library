@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201906181040268_Initial.Designer.cs">
       <DependentUpon>201906181040268_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906230708077_AddingImgPathToAuthor.cs" />
+    <Compile Include="Migrations\201906230708077_AddingImgPathToAuthor.Designer.cs">
+      <DependentUpon>201906230708077_AddingImgPathToAuthor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UniLibraryDbContext.cs" />
@@ -86,6 +90,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906181040268_Initial.resx">
       <DependentUpon>201906181040268_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906230708077_AddingImgPathToAuthor.resx">
+      <DependentUpon>201906230708077_AddingImgPathToAuthor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

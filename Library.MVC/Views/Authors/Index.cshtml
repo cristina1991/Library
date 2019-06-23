@@ -4,7 +4,7 @@
     ViewBag.Title = "Authors";
 }
 
-<div class="site-container">
+<div class="row site-container">
     <div class="row every-page-header">
         <div class="page-title col-md-9">Authors</div>
         <div class="button-right col-md-3">
@@ -14,13 +14,19 @@
     <table class="table">
         <tr>
             <th>
-                @Html.Label("Name")
+                @Html.Label("Full Name")
             </th>
             <th>
-                @Html.Label("Born")
+                @Html.Label("Genres")
             </th>
             <th>
-                @Html.Label("City")
+                @Html.Label("Born In")
+            </th>
+            <th>
+                @Html.Label("Is From")
+            </th>
+            <th>
+                @Html.Label("Photo")
             </th>
             <th></th>
         </tr>
@@ -32,14 +38,22 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Genres)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Born)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.City)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { authorId = item.Id }, new { @class = "btn btn-primary" })
-                    <button id="deleteAuthor_@item.Id" class="btn btn-primary deletesAuthor" type="button">Delete</button>
+                    <img src="@item.ImgPath" alt="author"/>
+                </td>
+                <td class="">
+                    <div class="action-buttons-right">
+                        @Html.ActionLink("Edit", "Edit", new { authorId = item.Id }, new { @class = "btn btn-primary" })
+                        <button id="deleteAuthor_@item.Id" class="btn btn-primary deletesAuthor" type="button">Delete</button>
+                    </div>
                 </td>
             </tr>
         }

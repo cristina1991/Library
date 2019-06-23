@@ -11,6 +11,7 @@ namespace Library.Data.Entities
        
         public string Born { get; set; }
         public string City { get; set; }
+        public string ImgPath { get; set; }
 
         public ICollection<Book> Books { get; set; }
         public ICollection<Genre> Genres { get; set; }

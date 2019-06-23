@@ -6,7 +6,7 @@ namespace Library.Data.Entities
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("UniversityDb", throwIfV1Schema: false)
+            : base("LibraryDb", throwIfV1Schema: false)
         {
         }
 

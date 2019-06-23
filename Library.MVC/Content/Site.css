@@ -198,3 +198,58 @@ footer p{
     padding-bottom:20px;
 }
 
+.front-header-content {
+    text-align: center;
+    min-height: 200px;
+    padding: 20px;
+}
+
+.front-header-title{
+    font-size:30px;
+    padding:10px;
+}
+
+.front-header-text{
+    font-size:18px;
+    padding:10px 20px;
+}
+
+.front-map-container {
+    min-height:300px;
+    text-align:center;
+    padding:20px 0;
+}
+
+.front-map-title {
+    font-size:30px;
+    padding:10px;
+}
+
+.front-map-box img {
+    height: 250px;
+    object-fit:cover;
+    width:100%;
+}
+
+.front-map-details{
+    font-size:20px;
+    padding:15px;
+}
+
+footer {
+    min-height: 50px;
+    background-image: linear-gradient(rgb(58,123,213),rgb(58,96,115));
+    color:white;
+    text-align:center;
+}
+
+footer p{
+    padding-top:12px;
+}
+
+.action-buttons-right{
+    float:right;
+}
+
+
+

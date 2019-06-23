@@ -190,7 +190,13 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Utils\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -199,11 +205,26 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\book.png" />
+    <Content Include="Content\Images\Books\Book__636967390225358491.jpg" />
+    <Content Include="Content\Images\Books\Book__636968139280523436.jpg" />
+    <Content Include="Content\Images\Books\Book__636968139868254296.jpg" />
+    <Content Include="Content\Images\HomePage\Authors\auth1.jpg" />
+    <Content Include="Content\Images\HomePage\Authors\auth2.jpg" />
+    <Content Include="Content\Images\HomePage\Authors\auth3.jpg" />
+    <Content Include="Content\Images\HomePage\Authors\auth4.jpg" />
+    <Content Include="Content\Images\HomePage\Authors\auth5.jpg" />
+    <Content Include="Content\Images\HomePage\library1.jpg" />
+    <Content Include="Content\Images\HomePage\library2.jpg" />
+    <Content Include="Content\Images\HomePage\library3.jpg" />
+    <Content Include="Content\Images\pen.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\ApplicationScripts\Books.js" />
+    <Content Include="Scripts\ApplicationScripts\General.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -211,6 +232,10 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

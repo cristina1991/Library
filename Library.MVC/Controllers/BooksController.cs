@@ -1,6 +1,12 @@
 ﻿using Services.Abstract;
 using System.Web.Mvc;
 using Library.Data.Entities;
+using System.Web;
+using System.IO;
+using System;
+using Library.MVC.Properties;
+using System.Linq;
+using Library.MVC.Utils;
 
 namespace UniLibrary.Controllers
 { 
@@ -87,5 +93,39 @@ namespace UniLibrary.Controllers
             var book = bookService.FindBookById(bookId);
             return View(book);
         }
+
+        public ActionResult UploadBookPhoto(HttpPostedFileBase[] files, int bookId)
+        {
+            foreach (HttpPostedFileBase file in files)
+            {
+                //Verify if the user selected a file
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    fileName = "Book_" + Utilities.AddTimpestampToFileName(fileName);
+
+                    var directory = Settings.Default.Books;
+                    var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + directory);
+
+                    //See if the location exists
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    path = Path.Combine(path, fileName);
+                    
+                    file.SaveAs(path);
+
+                    //Save in database
+                    var book = bookService.FindBookById(bookId);
+                    book.ImgPath = path;
+                    bookService.UpdateBook(book);
+
+                    return Json(new { success = true });
+                }
+            }
+            return PartialView();
+        }
+
     }
 }

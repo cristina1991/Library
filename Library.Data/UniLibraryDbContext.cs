@@ -6,7 +6,7 @@ namespace Library.Data
 {
     public class UniLibraryDbContext : DbContext
     {
-        public UniLibraryDbContext() : base("name=UniversityDb")
+        public UniLibraryDbContext() : base("name=LibraryDb")
         {   }
 
         public DbSet<Book> Books { get; set; }

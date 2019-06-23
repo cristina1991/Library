@@ -11,6 +11,7 @@ using Services.Concrete;
 using Unity;
 using Unity.AspNet.Mvc;
 using Unity.Injection;
+using Library.MVC.Controllers;
 
 namespace Library.MVC
 {
@@ -34,8 +35,10 @@ namespace Library.MVC
             container.RegisterType<IAuthorRepository, AuthorRepository>();
             container.RegisterType<IAuthorService, AuthorService>();
 
-            container.RegisterType<IAuthenticationManager>(
-                new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication));
+            container.RegisterType<AccountController>(new InjectionConstructor());
+
+            //container.RegisterType<IAuthenticationManager>(
+            //    new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication));
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
