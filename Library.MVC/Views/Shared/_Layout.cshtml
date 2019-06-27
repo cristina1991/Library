@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
    
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    @*<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>*@
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin="anonymous">
     <title>@ViewBag.Title - UniLibrary</title>
@@ -48,7 +48,6 @@
                     <li>@Html.ActionLink("Autori", "Index", "Authors")</li>
                     <li>@Html.ActionLink("Genuri", "Index", "Genres")</li>
                     <li>@Html.ActionLink("Favorite", "Index", "Favourites")</li>
-                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
                 </ul>
             </div>
         </div>
@@ -67,6 +66,10 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/appScripts")
     @Scripts.Render("~/bundles/bootstrap")
+
+    @Scripts.Render("~/bundles/selectizeJs")
+    @Styles.Render("~/Content/selectizeCss")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

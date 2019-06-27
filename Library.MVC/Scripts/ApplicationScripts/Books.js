@@ -1,4 +1,47 @@
-﻿$(document).on('click', '.addBookImages', function () {
+﻿$(document).ready(function () {
+    SelectizeDropdowns();
+});
+
+function SelectizeDropdowns() {
+    $('#select-author').selectize({
+        create: function (input, callback) {
+            $.ajax({
+                url: getBaseUrl() + 'AddAuthor',
+                type: 'POST',
+                data: { authorName: input },
+                success: function (res) {
+                    callback({ value: res.authorId, text: input });
+                }
+                ,
+                error: function (ex) {
+                    alert(ex);
+                }
+            });
+        },
+        sortField: 'text'
+    });
+
+
+    $('#select-genre').selectize({
+        create: function (input, callback) {
+            $.ajax({
+                url: getBaseUrl() + 'AddGenre',
+                type: 'POST',
+                data: { genreName: input },
+                success: function (res) {
+                    callback({ value: res.genreId, text: input });
+                }
+                ,
+                error: function (ex) {
+                    alert(ex);
+                }
+            });
+        },
+        sortField: 'text'
+    });
+}
+
+$(document).on('click', '.addBookImages', function () {
     var bookId = $(this).attr('id').replace("addBookImage_", "");
     $('#inputBookPhotoUpload').attr('data-bookId', bookId);
     $('#inputBookPhotoUpload').click();

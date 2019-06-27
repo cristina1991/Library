@@ -40,8 +40,12 @@ textarea {
     display: inline-flex;
 }
 
-.searchBtn{
-    float:right;
+.selectize-input {
+    max-width:430px;
+}
+
+.searchBtn {
+    float: right;
 }
 
 .logo-header img {
@@ -202,7 +206,7 @@ footer p{
 }
 
 .book-author {
-    margin-left:200px;
+    margin-left:260px;
     font-style:italic;
 }
 

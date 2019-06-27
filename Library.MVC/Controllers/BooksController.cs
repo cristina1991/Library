@@ -52,7 +52,7 @@ namespace UniLibrary.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var books = bookService.GetBookFilteredList(searchString, searchString, page ?? 1, 10);
+            var books = bookService.GetBookFilteredList(searchString, searchString, page ?? 1, 18);
             return View(books);
         }
 
@@ -153,6 +153,25 @@ namespace UniLibrary.Controllers
         {
             var userId = User.Identity.GetUserId();
         }
+
+        public ActionResult AddAuthor(string authorName)
+        {
+            var author = new Author();
+            author.Name = authorName;
+            authorService.AddAuthor(author);
+
+            return Json(new { authorId = author.Id });
+        }
+
+        public ActionResult AddGenre(string genreName)
+        {
+            var genre = new Genre();
+            genre.Name = genreName;
+            genreService.AddGenre(genre);
+
+            return Json(new { genreId = genre.Id });
+        }
+
 
         public ActionResult UploadBookPhoto(HttpPostedFileBase[] files, int bookId)
         {

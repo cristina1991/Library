@@ -24,25 +24,9 @@
             </div>
 
             <div class="row form-group">
-                @Html.LabelFor(model => model.Publisher, "Editura", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Publisher, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Publisher, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="row form-group">
-                @Html.LabelFor(model => model.Release, "Publicata", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Release, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Release, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="row form-group">
                 @Html.LabelFor(model => model.AuthorId, "Autor", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.AuthorId, new SelectList(ViewBag.Authors, "Id", "Name"), "Selecteaza", htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.AuthorId, new SelectList(ViewBag.Authors, "Id", "Name"), "Selecteaza", htmlAttributes: new { @class = "form-control", @id="select-author" })
                     @Html.ValidationMessageFor(model => model.AuthorId, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -50,8 +34,16 @@
             <div class="row form-group">
                 @Html.LabelFor(model => model.GenreId, "Gen", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.GenreId, new SelectList(ViewBag.Genres, "Id", "Name"), "Selecteaza", htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.GenreId, new SelectList(ViewBag.Genres, "Id", "Name"), "Selecteaza", htmlAttributes: new { @class = "form-control", @id="select-genre" })
                     @Html.ValidationMessageFor(model => model.GenreId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row form-group">
+                @Html.LabelFor(model => model.Publisher, "Editura", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Publisher, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Publisher, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -83,5 +75,13 @@
         </div>
     </div>
 }
+
+@section Scripts {
+   
+}
+
+
+
+
 
 

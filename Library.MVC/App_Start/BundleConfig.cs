@@ -31,6 +31,9 @@ namespace Library.MVC
                       "~/Scripts/ApplicationScripts/Books.js",
                       "~/Scripts/ApplicationScripts/Authors.js"
                 ));
+
+            bundles.Add(new ScriptBundle("~/bundles/selectizeJs").Include("~/Scripts/selectize.min.js"));
+            bundles.Add(new StyleBundle("~/Content/selectizeCss").Include("~/Content/selectize.bootstrap3.css"));
         }
     }
 }

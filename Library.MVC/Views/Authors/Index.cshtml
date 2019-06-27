@@ -47,7 +47,14 @@
                     @Html.DisplayFor(modelItem => item.City)
                 </td>
                 <td class="index-author-image">
-                    <img src="@item.ImgPath" alt="author"/>
+                    @if (item.ImgPath == null)
+                    {
+                        <img/>
+                    }
+                    else
+                    {
+                        <img src="@item.ImgPath" alt="author" />
+                    }
                 </td>
                 <td class="">
                     <div class="action-buttons-right">
