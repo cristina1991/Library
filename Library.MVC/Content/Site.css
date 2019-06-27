@@ -104,6 +104,12 @@ input[type=number]::-webkit-outer-spin-button {
     min-width:430px;
 }
 
+.all-books-container .col-md-2{
+    padding-right:10px;
+    padding-left:10px;
+}
+
+
 .page-title {
     font-size: 25px;
     font-style: italic;
@@ -122,13 +128,21 @@ footer p{
     width: 100%;
     border: 1px solid #cecece;
     margin: 10px 0;
-    height: 300px;
+    min-height: 280px;
     border-radius: 4px;
     padding-top: 15px;
 }
 
-.entity-rows{
-    margin:10px;
+.entity-rows {
+    margin: 10px 25px;
+}
+
+.right-edge{
+    border-radius:4px 0 0 4px;
+}
+
+.left-edge{
+    border-radius:0 4px 4px 0;
 }
 
 .bookImage {

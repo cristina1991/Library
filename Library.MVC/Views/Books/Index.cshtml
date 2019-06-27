@@ -14,8 +14,8 @@
             @using (Html.BeginForm("Index", "Books", FormMethod.Get, new { @class = "form-horizontal" }))
             {
                 <div class="inputSearchGroup">
-                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, htmlAttributes: new { @class = "form-control inputSearch", @placeholder = "Cauta o carte" })
-                    <button type="submit" value="Search" class="btn btn-primary searchBtn"><i class="fas fa-search"></i></button>
+                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, htmlAttributes: new { @class = "form-control inputSearch right-edge", @placeholder = "Cauta o carte" })
+                    <button type="submit" value="Search" class="btn btn-success searchBtn left-edge"><i class="fas fa-search"></i></button>
                 </div>
             }
         </div>
@@ -25,28 +25,30 @@
             @Html.ActionLink("Adauga o carte", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
         </div>
     </div>
-    <div class="row ">
+    <div class="row all-books-container">
         @foreach (var item in Model)
         {
             <a href="@Url.Action("SingleBook", "Books", new { bookId = item.Id })">
-                <div class="col-md-3 booksContainer" id="bookContainer_@item.Id">
+                <div class="col-md-2 booksContainer" id="bookContainer_@item.Id">
                     <div class="bordered-entity">
                         <img class="bookImage" src="@item.ImgPath" />
                         <div class="index-book-details">
                             <div class="row entity-rows">
-                                <div class="col-md-3">Titlu:</div>
-                                <div class="col-md-9">@item.Title</div>
+                                @*<div class="col-md-3">Titlu:</div>
+                                <div class="col-md-9">@item.Title</div>*@
+                                @item.Title
                             </div>
 
                             <div class="row entity-rows">
-                                <div class="col-md-3">Autor:</div>
-                                <div class="col-md-9">@item.Author.Name</div>
+                                @*<div class="col-md-3">Autor:</div>
+                                <div class="col-md-9">@item.Author.Name</div>*@
+                                @item.Author.Name
                             </div>
 
-                            <div class="row entity-rows">
+                            @*<div class="row entity-rows">
                                 <div class="col-md-3">Gen:</div>
                                 <div class="col-md-9">@item.Genre.Name</div>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
