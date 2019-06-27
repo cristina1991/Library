@@ -64,6 +64,10 @@ namespace Library.MVC.Models
 
     public class RegisterViewModel
     {
+        //[Required]
+        //[Display(Name = "UserName")]
+        //public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

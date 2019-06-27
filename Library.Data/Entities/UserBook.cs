@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Library.Data.Entities.UserEntities;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Data.Entities
 {
@@ -8,7 +9,7 @@ namespace Library.Data.Entities
 
         //public int UserId { get; set; }
         //[ForeignKey("UserId")]
-        //public ApplicationUser User { get; set; }
+        //public AspNetUsers User { get; set; }
 
         public int BookId { get; set; }
         [ForeignKey("BookId")]

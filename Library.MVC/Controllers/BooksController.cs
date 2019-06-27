@@ -7,6 +7,7 @@ using System;
 using Library.MVC.Properties;
 using System.Linq;
 using Library.MVC.Utils;
+using Microsoft.AspNet.Identity;
 
 namespace UniLibrary.Controllers
 { 
@@ -146,6 +147,11 @@ namespace UniLibrary.Controllers
             review.Comment = bookReview;
             review.BookId = bookId;
             reviewService.AddReview(review);
+        }
+
+        public void AddFavourite(int bookId)
+        {
+            var userId = User.Identity.GetUserId();
         }
 
         public ActionResult UploadBookPhoto(HttpPostedFileBase[] files, int bookId)

@@ -57,5 +57,15 @@ $(document).on('click', '.sendReviewBtns', function () {
 
 $(document).on('click', '.favourite-book-icon', function () {
     var bookId = $(this).attr('id').replace("favouriteBook_", "");
-
+    $.ajax({
+        type: "POST",
+        url: getBaseUrl() + "AddFavourite",
+        data: { bookId: bookId },
+        success: function (res) {
+            alert('io');
+        },
+        error: function (error) {
+            alert(error);
+        }
+    });
 });
