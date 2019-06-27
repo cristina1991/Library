@@ -54,6 +54,8 @@
     <Compile Include="Concrete\GenreBookLinksService.cs" />
     <Compile Include="Concrete\GenreService.cs" />
     <Compile Include="Concrete\ReviewService.cs" />
+    <Compile Include="Models\Abstract\IPaginatedList.cs" />
+    <Compile Include="Models\PaginatedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

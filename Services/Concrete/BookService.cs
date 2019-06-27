@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Library.Data.Entities;
 using Services.Abstract;
 using Repository.Abstract;
+using Services.Models;
+using System.Linq;
 
 namespace Services.Concrete
 {
@@ -33,6 +35,13 @@ namespace Services.Concrete
         public IEnumerable<Book> GetAllBooks()
         {
             return bookRepo.GetAllBooks();
+        }
+
+        public PaginatedList<Book> GetBookFilteredList(string author="", string book="", int pageNo=1, int pageSize=10)
+        {
+            List<Book> books = bookRepo.GetBooksFilteredList(author, book).ToList();
+            var paginatedResults = new PaginatedList<Book>(books, pageNo, pageSize);
+            return paginatedResults;
         }
 
         public void UpdateBook(Book book)

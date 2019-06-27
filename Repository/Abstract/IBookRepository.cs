@@ -14,6 +14,7 @@ namespace Repository.Abstract
         void UpdateBook(Book book);
         Book FindBookById(int bookId);
         void DeleteBook(Book book);
+        IEnumerable<Book> GetBooksFilteredList(string author = "", string book = "");
         void Save();
     }
 }

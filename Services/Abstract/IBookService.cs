@@ -1,6 +1,6 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Library.Data.Entities;
+using Services.Models;
 
 namespace Services.Abstract
 {
@@ -11,5 +11,6 @@ namespace Services.Abstract
         void UpdateBook(Book book);
         Book FindBookById(int bookId);
         void DeleteBook(Book book);
+        PaginatedList<Book> GetBookFilteredList(string author, string book, int pageNo, int pageSize);
     }
 }

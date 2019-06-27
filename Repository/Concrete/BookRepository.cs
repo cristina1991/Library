@@ -50,5 +50,12 @@ namespace Repository.Concrete
         {
             db.SaveChanges();
         }
+
+        public IEnumerable<Book> GetBooksFilteredList(string author = "", string book = "")
+        {
+            return db.Books.Where(x => (book=="" || (book != "" && x.Title.ToLower().Contains(book.ToLower()))) ||
+                                       (author=="" || (author !="" && x.Author.Name.ToLower().Contains(author.ToLower())))
+                                  ).ToList();
+        }
     }
 }

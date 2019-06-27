@@ -34,9 +34,24 @@ namespace UniLibrary.Controllers
         }
 
         // GET: Books
-        public ActionResult Index()
+        public ActionResult Index(string currentFilter, string searchString, int? page)
         {
-            var books = bookService.GetAllBooks();
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                if (currentFilter == null) { searchString = ""; }
+                else
+                {
+                    searchString = currentFilter;
+                }
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var books = bookService.GetBookFilteredList(searchString, searchString, page ?? 1, 10);
             return View(books);
         }
 

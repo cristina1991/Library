@@ -1,4 +1,7 @@
-﻿@model IEnumerable<Library.Data.Entities.Book>
+﻿@model PaginatedList<Book>
+
+@using Library.Data.Entities;
+@using Services.Models;
 
 @{ 
     ViewBag.Title = "Books";
@@ -7,8 +10,18 @@
 
 <div class="row site-container">
     <div class="row every-page-header">
-        <div class="page-title col-md-9">Cărți</div>
-        <div class="button-right col-md-3">
+        <div class="col-md-10 searchBar">
+            @using (Html.BeginForm("Index", "Books", FormMethod.Get, new { @class = "form-horizontal" }))
+            {
+                <div class="inputSearchGroup">
+                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, htmlAttributes: new { @class = "form-control inputSearch", @placeholder = "Cauta o carte" })
+                    <button type="submit" value="Search" class="btn btn-primary searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+            }
+        </div>
+
+        @*<div class="page-title col-md-9">Cărți</div>*@
+        <div class="button-right col-md-2">
             @Html.ActionLink("Adauga o carte", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
         </div>
     </div>
