@@ -41,13 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAuthorBookLinkRepository.cs" />
     <Compile Include="Abstract\IAuthorRepository.cs" />
     <Compile Include="Abstract\IBookRepository.cs" />
-    <Compile Include="Abstract\IFavouritesRepository.cs" />
+    <Compile Include="Abstract\IGenreAuthorLinksRepository.cs" />
+    <Compile Include="Abstract\IGenreBookLinksRepository.cs" />
     <Compile Include="Abstract\IGenreRepository.cs" />
+    <Compile Include="Abstract\IReviewRepository.cs" />
+    <Compile Include="Concrete\AuthorBookLinkRepository.cs" />
     <Compile Include="Concrete\AuthorRepository.cs" />
     <Compile Include="Concrete\BookRepository.cs" />
+    <Compile Include="Concrete\GenreAuthorLinksRepository.cs" />
+    <Compile Include="Concrete\GenreBookLinksRepository.cs" />
     <Compile Include="Concrete\GenreRepository.cs" />
+    <Compile Include="Concrete\ReviewRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

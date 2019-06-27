@@ -15,7 +15,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
-        <div class="row">
+        <div class="row general-spacing-layout">
             <div class="col-md-6 singleBookPhoto">
                 <img src="@Model.ImgPath" alt="book"/>
             </div>

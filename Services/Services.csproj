@@ -40,12 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAuthorBookLinksService.cs" />
     <Compile Include="Abstract\IAuthorService.cs" />
     <Compile Include="Abstract\IBookService.cs" />
+    <Compile Include="Abstract\IGenreAuthorLinksService.cs" />
+    <Compile Include="Abstract\IGenreBookLinksService.cs" />
     <Compile Include="Abstract\IGenreService.cs" />
+    <Compile Include="Abstract\IReviewService.cs" />
+    <Compile Include="Concrete\AuthorBookLinksService.cs" />
     <Compile Include="Concrete\AuthorService.cs" />
     <Compile Include="Concrete\BookService.cs" />
+    <Compile Include="Concrete\GenreAuthorLinksService.cs" />
+    <Compile Include="Concrete\GenreBookLinksService.cs" />
     <Compile Include="Concrete\GenreService.cs" />
+    <Compile Include="Concrete\ReviewService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

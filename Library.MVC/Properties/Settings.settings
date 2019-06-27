@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="Books" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Content\Images\Books\</Value>
+      <Value Profile="(Default)">\Content\Images\Books\</Value>
     </Setting>
     <Setting Name="Authors" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Content\Images\Authors\</Value>
+      <Value Profile="(Default)">\Content\Images\Authors\</Value>
     </Setting>
   </Settings>
 </SettingsFile>

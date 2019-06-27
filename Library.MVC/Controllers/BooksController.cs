@@ -15,13 +15,24 @@ namespace UniLibrary.Controllers
         private IBookService bookService;
         private IGenreService genreService;
         private IAuthorService authorService;
+        private IAuthorBookLinksService authorBookLinksService;
+        private IGenreBookLinksService genreBookLinksService;
+        private IGenreAuthorLinksService genreAuthorLinksService;
+        private IReviewService reviewService;
 
-        public BooksController(IBookService bookService, IGenreService genreService, IAuthorService authorService)
+        public BooksController(IBookService bookService, IGenreService genreService, IAuthorService authorService, 
+                               IAuthorBookLinksService authorBookLinksService, IGenreBookLinksService genreBookLinksService, 
+                               IGenreAuthorLinksService genreAuthorLinksService, IReviewService reviewService)
         {
             this.bookService = bookService;
             this.genreService = genreService;
             this.authorService = authorService;
+            this.authorBookLinksService = authorBookLinksService;
+            this.genreBookLinksService = genreBookLinksService;
+            this.genreAuthorLinksService = genreAuthorLinksService;
+            this.reviewService = reviewService;
         }
+
         // GET: Books
         public ActionResult Index()
         {
@@ -45,6 +56,25 @@ namespace UniLibrary.Controllers
             if (ModelState.IsValid)
             {
                 bookService.AddBook(book);
+
+                //Adding AuthorToBook 
+                var authorBookLink = new AuthorBookLink();
+                authorBookLink.AuthorId = book.AuthorId;
+                authorBookLink.BookId = book.Id;
+                authorBookLinksService.AddAuthorBookLink(authorBookLink);
+
+                //Adding GenreToBook 
+                var genreBookLink = new GenreBookLink();
+                genreBookLink.BookId = book.Id;
+                genreBookLink.GenreId = book.GenreId;
+                genreBookLinksService.AddGenreBookLink(genreBookLink);
+
+                //Adding GenreToAuthor 
+                var genreAuthorLink = new GenreAuthorLink();
+                genreAuthorLink.AuthorId = book.AuthorId;
+                genreAuthorLink.GenreId = book.GenreId;
+                genreAuthorLinksService.AddGenreAuthorLink(genreAuthorLink);
+
                 return RedirectToAction("Index");
             }
             else
@@ -91,7 +121,16 @@ namespace UniLibrary.Controllers
         public ActionResult SingleBook(int bookId)
         {
             var book = bookService.FindBookById(bookId);
+            book.Reviews = reviewService.GetAllReviewsByBookId(bookId);
             return View(book);
+        }
+
+        public void AddReview(string bookReview, int bookId)
+        {
+            var review = new Review();
+            review.Comment = bookReview;
+            review.BookId = bookId;
+            reviewService.AddReview(review);
         }
 
         public ActionResult UploadBookPhoto(HttpPostedFileBase[] files, int bookId)

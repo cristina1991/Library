@@ -30,3 +30,32 @@ $(document).on('change', "#inputBookPhotoUpload", function () {
         }
     });
 });
+
+$(document).on('click', '.plus-review', function () {
+    $('.new-review-content').toggle('slow');
+});
+
+$(document).on('click', '.sendReviewBtns', function () {
+    var bookId = $(this).attr('id').replace("sendReviewBtn_", "");
+    var bookReview = $('#bookReviewText').val();
+
+    if (bookReview == "") {
+        return;
+    }
+    $.ajax({
+        type: "POST",
+        url: getBaseUrl() + "AddReview",
+        data: { bookReview: bookReview, bookId:bookId},
+        success: function (res) {
+            location.reload();
+        },
+        error: function (error) {
+            alert(error);
+        }
+    });
+});
+
+$(document).on('click', '.favourite-book-icon', function () {
+    var bookId = $(this).attr('id').replace("favouriteBook_", "");
+
+});

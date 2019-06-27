@@ -6,19 +6,22 @@
 
 <div class="row site-container">
     <div class="row">
-        <div class="page-title col-md-9">Book</div>
+        <div class="page-title col-md-9">@*Book*@</div>
         <div class="button-right col-md-3">
-            @Html.ActionLink("Edit", "Edit", new { bookId = Model.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Modifica", "Edit", new { bookId = Model.Id }, new { @class = "btn btn-primary" })
         </div>
     </div>
     <hr />
 
     <div class="row singleBookContainer">
         <div class="col-md-6 singleBookPhoto">
-            <img src="#" />
+            <img src="@Model.ImgPath" />
         </div>
         <div class="col-md-6 singleBookDetails">
-
+            <div class="favourite-book-icon" id="favouriteBook_@Model.Id">
+                <i class="far fa-heart"></i>
+                @*<i class="fas fa-heart"></i> Full*@
+            </div>
             <div class="book-title">
                 @Html.DisplayFor(model => model.Title)
             </div>
@@ -26,10 +29,8 @@
             <div class="book-author">
                de
                 @Html.DisplayFor(model => model.Author.Name)
-                <i class="fas fa-user-edit"></i>
-                <i class="fa fas-user-edit"></i>
-                <i class="far fa-angry"></i>
             </div>
+           
             <div class="book-additional-info">
                 <div class="book-publisher">
                     <span>Editura:</span>
@@ -62,17 +63,46 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row reviews-container">
+       
+
+        
+
+        <div class="book-review-title">
+            <span>Recenzii</span> 
+            <div class="plus-review">
+                <i class="fas fa-plus"></i>
+            </div>
+        </div>
         @if (Model.Reviews != null && Model.Reviews.Count > 0)
         {
-            <div class="">
-                Recenzii
-            </div>
+            foreach (var item in Model.Reviews)
+            {
+                <div class="single-review">
+                    @item.Comment
+                </div>
+            }
         }
         else
         {
-            <p>Aceasta carte nu are nicio recenzie</p>
+            <div class="no-content-div">
+                Nu exista recenzii pentru aceasta carte.
+                
+            </div>
         }
+
+        <div class="new-review-content">
+            <div class="row form-group">
+                <p class="col-md-2 add-review-text">Adauga o recenzie</p>
+                <div class="col-md-8">
+                    <input type="text" class="book-review form-control" id="bookReviewText" />
+                </div>
+                <div class="col-md-2">
+                    <div class="sendReviewBtns btn btn-success" id="sendReviewBtn_@Model.Id">Trimite</div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <hr />
     @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })

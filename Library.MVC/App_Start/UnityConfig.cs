@@ -35,6 +35,22 @@ namespace Library.MVC
             container.RegisterType<IAuthorRepository, AuthorRepository>();
             container.RegisterType<IAuthorService, AuthorService>();
 
+            container.RegisterType<IReviewRepository, ReviewRepository>();
+            container.RegisterType<IReviewService, ReviewService>();
+
+            //Link Tables
+            container.RegisterType<IAuthorBookLinkRepository, AuthorBookLinkRepository>();
+            container.RegisterType<IAuthorBookLinksService, AuthorBookLinksService>();
+
+            container.RegisterType<IGenreBookLinksRepository, GenreBookLinksRepository>();
+            container.RegisterType<IGenreBookLinksService, GenreBookLinksService>();
+
+            container.RegisterType<IGenreAuthorLinksRepository, GenreAuthorLinksRepository>();
+            container.RegisterType<IGenreAuthorLinksService, GenreAuthorLinksService>();
+
+         
+           
+
             container.RegisterType<AccountController>(new InjectionConstructor());
 
             //container.RegisterType<IAuthenticationManager>(

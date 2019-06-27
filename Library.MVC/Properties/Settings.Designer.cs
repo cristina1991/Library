@@ -25,7 +25,7 @@ namespace Library.MVC.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Content\\Images\\Books\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\Content\\Images\\Books\\")]
         public string Books {
             get {
                 return ((string)(this["Books"]));
@@ -34,7 +34,7 @@ namespace Library.MVC.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Content\\Images\\Authors\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\Content\\Images\\Authors\\")]
         public string Authors {
             get {
                 return ((string)(this["Authors"]));

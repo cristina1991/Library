@@ -1,12 +1,15 @@
 ﻿body {
-    padding-top: 110px;
-    padding-bottom: 20px;
+    padding-top: 115px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    border-left: 1px solid #eaeaea;
+    border-right: 1px solid #eaeaea;
+    background: white;
+    color: #3d3d3d;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -91,7 +94,7 @@ input[type=number]::-webkit-outer-spin-button {
 .page-title {
     font-size: 25px;
     font-style: italic;
-    padding-left: 30px;
+    padding-left: 50px;
 }
 
 .register-form-btn{
@@ -104,13 +107,11 @@ footer p{
 
 .bordered-entity {
     width: 100%;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #cecece;
     margin: 10px 0;
     height: 300px;
     border-radius: 4px;
     padding-top: 15px;
-    /*background-image: liniar-gradient(#D3CCE3,#E9E4F0,#E9E4F0);*/
-    /*background-image: linear-gradient(to left,#f9f9f9,#eaeaea,#f9f9f9);*/
 }
 
 .entity-rows{
@@ -118,11 +119,16 @@ footer p{
 }
 
 .bookImage {
-    width: 120px;
-    height: 150px;
+    width: 115px;
+    height: 160px;
     background: blue;
     display: block;
     margin: auto;
+    border-radius: 3px;
+}
+
+.index-book-details{
+    margin-top:20px;
 }
 
 .booksContainer{
@@ -150,11 +156,11 @@ footer p{
     }
 
 .header-class-title {
-    font-size: 30px;
+    font-size: 27px;
     vertical-align: middle;
-    font-family: 'Gugi', cursive;
     font-style:italic;
     text-align:center;
+    letter-spacing:1px;
 }
 
 .header-class-info {
@@ -163,31 +169,44 @@ footer p{
     display: flex;
     align-items: center;
     background-image: linear-gradient(#F2F2F2,#DBDBDB,#EAEAEA );
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top:15px;
+    margin-bottom:15px;
+    border-radius:5px;
 }
 
 .book-author {
-    //text-transform: uppercase;
-    text-align:center;
+    margin-left:200px;
+    font-style:italic;
 }
 
 .singleBookDetails > div{
     font-size:17px;
 }
 
+.general-spacing-layout{
+      padding-top:40px;
+      padding-bottom:10px;
+}
+
 .singleBookPhoto, .singleAuthorPhoto{
     text-align:center;
 }
 
-.singleBookPhoto img {
-    height: 380px;
+    .singleBookPhoto img {
+        height: 380px;
+        border: 1px solid black;
+        width: 280px;
+        border-radius: 2px;
+    }
+
+.singleAuthorPhoto img {
+    height: 360px;
     width: 300px;
 }
 
-.singleAuthorPhoto img {
-    height: 380px;
-    width: 300px;
+.singleAuthorDetails{
+    margin-top:40px;
+   
 }
 
 .book-title{
@@ -195,7 +214,7 @@ footer p{
 }
 
 .book-additional-info{
-    padding:20px 0;
+   padding-top:60px;
 }
 
 .book-additional-info > div{
@@ -210,17 +229,13 @@ footer p{
     text-align:right;
 }
 
-.crud-book-layout{
-   
-}
-
 .every-page-header{
     padding-bottom:20px;
 }
 
 .front-header-content {
     text-align: center;
-    min-height: 200px;
+    min-height: 220px;
     padding: 20px;
 }
 
@@ -232,13 +247,13 @@ footer p{
 
 .front-header-text{
     font-size:18px;
-    padding:10px 80px;
+    line-height:27px;
+    padding:20px 80px;
 }
 
 .front-map-container {
     min-height:300px;
     text-align:center;
-    padding:20px 0;
 }
 
 .front-map-title {
@@ -261,8 +276,8 @@ footer p{
 footer {
     min-height: 50px;
     background-image: linear-gradient(rgb(58,123,213),rgb(58,96,115));
-    color:white;
-    text-align:center;
+    color: white;
+    text-align: center;
 }
 
 footer p{
@@ -279,5 +294,82 @@ footer p{
     height: 30px;
 }
 
+.favourite-book-icon {
+    float: right;
+    margin-top: 10px;
+    margin-right: 12px;
+    color: #428bca;
+}
 
+.favourite-book-icon i{
+    font-size:25px;
+}
 
+    .favourite-book-icon i:hover {
+        font-weight:600;
+        cursor:pointer;
+    }
+
+.front-contact-details{
+    font-size:18px;
+    margin-top:5px;
+}
+
+.reviews-container {
+    padding: 20px 50px;
+}
+
+.book-review-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.no-content-div {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #7a7a7a;
+    background: #eaeaea;
+}
+
+.single-review {
+    padding: 15px;
+    border-radius: 5px;
+    background: #efefef;
+    margin-bottom: 10px;
+    border: 1px solid #b7b7b7;
+}
+
+.book-review {
+    min-width: 740px;
+    min-height: 35px;
+}
+
+.new-review-content{
+    padding:20px 0;
+    display:none;
+}
+
+.sendReviewBtns {
+    height: 35px;
+    float: right;
+}
+
+.add-review-text {
+    font-size: 16px;
+    padding-top: 3px;
+}
+
+.plus-review{
+    float:right;
+    margin-right:10px;
+}
+
+.plus-review i {
+    font-size: 25px;
+    color: #5cb85c;
+    font-weight:bold;
+}
+
+    .plus-review i:hover {
+        cursor: pointer;
+    }
