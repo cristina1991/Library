@@ -20,7 +20,6 @@
             }
         </div>
 
-        @*<div class="page-title col-md-9">Cărți</div>*@
         <div class="button-right col-md-2">
             @Html.ActionLink("Adauga o carte", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
         </div>
@@ -54,6 +53,19 @@
                 </div>
             </a>
         }
+        <div class="clearfix"></div>
+        <div class="text-center">
+            @Html.Partial("Pagination", new PaginationModel()
+           {
+               PageIndex = Model.PageIndex,
+               TotalPages = Model.TotalPages,
+               PageActionLink = Url.Action("Index", "Books", new { page = "{page}", currentFilter = ViewBag.CurrentFilter }),
+               TotalCount = Model.TotalCount,
+               PageSize = Model.PageSize,
+               WindowSize = Model.WindowSize
+           }, null)
+        </div>
+
     </div>
 </div>
 

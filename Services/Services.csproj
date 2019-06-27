@@ -56,6 +56,7 @@
     <Compile Include="Concrete\ReviewService.cs" />
     <Compile Include="Models\Abstract\IPaginatedList.cs" />
     <Compile Include="Models\PaginatedList.cs" />
+    <Compile Include="Models\PaginationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

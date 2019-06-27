@@ -16,6 +16,7 @@ namespace Library.Data.Entities
         public decimal Rating { get; set; }
         public int Pages { get; set; }
         public string ImgPath { get; set; }
+        public bool IsFavourite { get; set; }
 
         public ICollection<Review> Reviews { get; set; }
 
