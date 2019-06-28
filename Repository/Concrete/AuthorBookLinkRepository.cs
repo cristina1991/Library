@@ -24,6 +24,16 @@ namespace Repository.Concrete
             Save();
         }
 
+        public void DeleteAuthorBookLink(int authorId, int bookId)
+        {
+            var authorBookLink = db.AuthorBookLink.Where(x => x.AuthorId == authorId && x.BookId == bookId).FirstOrDefault();
+            if (authorBookLink != null)
+            {
+                db.AuthorBookLink.Remove(authorBookLink);
+                Save();
+            }
+        }
+
         public IEnumerable<Author> GetAuthorsByBookId(int bookId)
         {
             return db.AuthorBookLink.Where(x => x.BookId == bookId).Select(x=>x.Author).ToList();

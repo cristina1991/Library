@@ -10,6 +10,7 @@ namespace Repository.Abstract
     public interface IGenreBookLinksRepository
     {
         void AddGenreBookLink(GenreBookLink genreBookLink);
+        void DeleteGenreBookLink(int genreId, int bookId);
         IEnumerable<Genre> GetAllGenresByBookId(int bookId);
         IEnumerable<Book> GetAllBooksByGenreId(int genreId);
         void Save();

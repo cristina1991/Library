@@ -12,28 +12,37 @@
 <div class="row site-container">
     <div class="page-title">@ViewBag.GenreHeader</div>
     <hr />
-    <div class="row all-books-container">
-        @foreach (var item in Model)
-        {
-            <a href="@Url.Action("SingleBook", "Books", new { bookId = item.Id })">
-                <div class="col-md-2 booksContainer" id="bookContainer_@item.Id">
-                    <div class="bordered-entity">
-                        <img class="bookImage" src="@item.ImgPath" />
-                        <div class="index-book-details">
-                            <div class="row entity-rows">
-                                @item.Title
-                            </div>
+    @if(Model.Count() > 0)
+    {
+        <div class="row all-books-container">
+            @foreach (var item in Model)
+            {
+                <a href="@Url.Action("SingleBook", "Books", new { bookId = item.Id })">
+                    <div class="col-md-2 booksContainer" id="bookContainer_@item.Id">
+                        <div class="bordered-entity">
+                            <img class="bookImage" src="@item.ImgPath" />
+                            <div class="index-book-details">
+                                <div class="row entity-rows">
+                                    @item.Title
+                                </div>
 
-                            <div class="row entity-rows">
-                                @item.Author.Name
+                                <div class="row entity-rows">
+                                    @item.Author.Name
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        }
-
-    </div>
+                </a>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="no-content-div">
+            Nu exista carti in acest gen.
+        </div>
+    }
+   
 </div>
 
 

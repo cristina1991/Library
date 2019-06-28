@@ -30,3 +30,24 @@ $(document).on('change', "#inputAuthorPhotoUpload", function () {
         }
     });
 });
+
+$(document).on('click', ".deletesAuthor", function () {
+    var authorId = $(this).attr("id").replace("deleteAuthor_", "");
+
+    $('#deleteAuthorModal').modal('show');
+
+    $(document).on('click', '#deleteAuthorBtn', function () {
+        $.ajax({
+            url: getBaseUrl() + 'Delete',
+            type: "POST",
+            data: { authorId: authorId },
+            success: function (result) {
+                $('#deleteAuthorModal').modal('hide');
+                location.reload();
+            },
+            error: function (ex) {
+                alert(ex);
+            }
+        });
+    });
+});

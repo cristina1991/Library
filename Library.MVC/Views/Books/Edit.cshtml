@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.Id)
         <div class="row general-spacing-layout">
             <div class="col-md-6 singleBookPhoto">
-                <img src="@Model.ImgPath" alt="book"/>
+                <img src="@Model.ImgPath"/>
             </div>
             <div class="col-md-6">
                 <div class="crud-book-layout">
@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="row form-group">
-                        @Html.LabelFor(model => model.GenreId, "Gen", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.GenreId, "Categorie", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.DropDownListFor(model => model.GenreId, new SelectList(ViewBag.Genres, "Id", "Name"), "Please select", htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.GenreId, "", new { @class = "text-danger" })

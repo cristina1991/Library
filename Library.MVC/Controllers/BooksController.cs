@@ -126,10 +126,20 @@ namespace UniLibrary.Controllers
             }
         }
 
-        [HttpPost]
         public ActionResult Delete(int bookId)
         {
             var book = bookService.FindBookById(bookId);
+
+            genreBookLinksService.DeleteGenreBookLink(book.GenreId, book.Id);
+            genreAuthorLinksService.DeleteGenreAuthorLink(book.GenreId, book.AuthorId);
+            authorBookLinksService.DeleteAuthorBookLink(book.AuthorId, book.Id);
+
+            var reviewsList = reviewService.GetAllReviewsByBookId(bookId);
+            foreach (var review in reviewsList)
+            {
+                reviewService.DeleteReview(review);
+            }
+
             bookService.DeleteBook(book);
 
             return RedirectToAction("Index");

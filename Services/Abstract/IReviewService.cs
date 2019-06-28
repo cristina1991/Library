@@ -10,6 +10,7 @@ namespace Services.Abstract
     public interface IReviewService
     {
         void AddReview(Review review);
+        void DeleteReview(Review review);
         ICollection<Review> GetAllReviewsByBookId(int bookId);
     }
 }

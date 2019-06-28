@@ -23,6 +23,11 @@ namespace Services.Concrete
             genreAuthorLinkRepo.AddGenreAuthorLink(genreAuthorLink);
         }
 
+        public void DeleteGenreAuthorLink(int genreId, int authorId)
+        {
+            genreAuthorLinkRepo.DeleteGenreAuthorLink(genreId, authorId);
+        }
+
         public ICollection<Author> GetAllAuthorsByGenreId(int genreId)
         {
             return genreAuthorLinkRepo.GetAllAuthorsByGenreId(genreId);

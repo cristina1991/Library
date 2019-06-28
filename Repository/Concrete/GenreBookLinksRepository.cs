@@ -22,6 +22,16 @@ namespace Repository.Concrete
             Save();
         }
 
+        public void DeleteGenreBookLink(int genreId, int bookId)
+        {
+            var genreBookLink = db.GenreBookLink.Where(x => x.GenreId == genreId && x.BookId == bookId).FirstOrDefault();
+            if (genreBookLink != null)
+            {
+                db.GenreBookLink.Remove(genreBookLink);
+                Save();
+            }
+        }
+
         public IEnumerable<Book> GetAllBooksByGenreId(int genreId)
         {
             return db.GenreBookLink.Where(x => x.GenreId == genreId).Select(x => x.Book).ToList();

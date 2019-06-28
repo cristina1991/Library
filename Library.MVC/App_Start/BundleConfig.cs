@@ -29,7 +29,8 @@ namespace Library.MVC
             bundles.Add(new ScriptBundle("~/bundles/appScripts").Include(
                       "~/Scripts/ApplicationScripts/General.js",
                       "~/Scripts/ApplicationScripts/Books.js",
-                      "~/Scripts/ApplicationScripts/Authors.js"
+                      "~/Scripts/ApplicationScripts/Authors.js",
+                      "~/Scripts/ApplicationScripts/Genres.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/selectizeJs").Include("~/Scripts/selectize.min.js"));

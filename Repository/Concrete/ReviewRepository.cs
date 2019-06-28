@@ -24,6 +24,12 @@ namespace Repository.Concrete
             Save();
         }
 
+        public void DeleteReview(Review review)
+        {
+            db.Reviews.Remove(review);
+            Save();
+        }
+
         public ICollection<Review> GetAllReviewsByBookId(int bookId)
         {
             return db.Reviews.Where(x => x.BookId == bookId).ToList();

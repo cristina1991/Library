@@ -23,6 +23,11 @@ namespace Services.Concrete
             reviewRepo.AddReview(review);
         }
 
+        public void DeleteReview(Review review)
+        {
+            reviewRepo.DeleteReview(review);
+        }
+
         public ICollection<Review> GetAllReviewsByBookId(int bookId)
         {
             return reviewRepo.GetAllReviewsByBookId(bookId);

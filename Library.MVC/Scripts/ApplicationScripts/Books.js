@@ -112,3 +112,23 @@ $(document).on('click', '.favourite-book-icon', function () {
         }
     });
 });
+
+$(document).on('click', ".deletesBook", function () {
+    var bookId = $(this).attr("id").replace("deleteBook_", "");
+
+    $('#deleteBookModal').modal('show');
+
+    $(document).on('click', '#deleteBookBtn', function () {
+        $.ajax({
+            url: getBaseUrl() + 'Delete',
+            type: "POST",
+            data: { bookId: bookId },
+            success: function (result) {
+                $('#deleteBookModal').modal('hide');
+            },
+            error: function (ex) {
+                alert(ex);
+            }
+        });
+    });
+});

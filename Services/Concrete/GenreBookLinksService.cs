@@ -23,6 +23,11 @@ namespace Services.Concrete
             genreBookLinksRepo.AddGenreBookLink(genreBookLink);
         }
 
+        public void DeleteGenreBookLink(int genreId, int bookId)
+        {
+            genreBookLinksRepo.DeleteGenreBookLink(genreId, bookId);
+        }
+
         public IEnumerable<Book> GetAllBooksByGenreId(int genreId)
         {
             return genreBookLinksRepo.GetAllBooksByGenreId(genreId);

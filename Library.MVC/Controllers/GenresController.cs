@@ -63,10 +63,19 @@ namespace Library.MVC.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult Delete(int genreId)
+        {
+            var genre = genreService.GetGenreById(genreId);
+            genreService.DeleteGenre(genre);
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult GetGenreBooks(int genreId)
         {
             var genre = genreService.GetGenreById(genreId);
-            ViewBag.GenreHeader = "Carti care apartin genului " + genre.Name.ToLower() + ":";
+            ViewBag.GenreHeader = "Carti care intra in categoria " + genre.Name + ":";
             var books = genreBookLinksService.GetAllBooksByGenreId(genreId);
             return View(books);
         }

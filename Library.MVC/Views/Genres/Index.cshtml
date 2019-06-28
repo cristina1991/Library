@@ -12,22 +12,12 @@
         @if (User.IsInRole(UserRoles.Admin))
         {
             <div class="button-right col-md-3">
-                @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
+                @Html.ActionLink("Categorie noua", "Create", null, htmlAttributes: new { @class = "btn btn-success actions-btn" })
             </div>
         }
     </div>
 
     <table class="table">
-        <tr>
-            <th>
-                @Html.Label("Nume")
-            </th>
-            @if (User.IsInRole(UserRoles.Admin))
-            {
-                <th></th>
-            }
-        </tr>
-
         @foreach (var item in Model)
         {
             <tr>
@@ -38,8 +28,8 @@
                 {
                     <td>
                         <div class="action-buttons-right">
-                            @Html.ActionLink("Edit", "Edit", new { genreId = item.Id }, new { @class = "btn btn-primary" })
-                            <button id="deleteGenre_@item.Id" class="btn btn-primary deletesGenre" type="button">Delete</button>
+                            @Html.ActionLink("Editeaza", "Edit", new { genreId = item.Id }, new { @class = "btn btn-primary" })
+                            <button id="deleteGenre_@item.Id" class="btn btn-primary deletesGenre" type="button">Sterge</button>
                         </div>
                     </td>
                 }
@@ -47,4 +37,8 @@
         }
 
     </table>
+</div>
+
+<div class="infoModal">
+    @Html.Partial("DeleteGenreModal")
 </div>

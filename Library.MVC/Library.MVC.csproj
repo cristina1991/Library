@@ -1794,6 +1794,7 @@
     <Content Include="Scripts\ApplicationScripts\Authors.js" />
     <Content Include="Scripts\ApplicationScripts\Books.js" />
     <Content Include="Scripts\ApplicationScripts\General.js" />
+    <Content Include="Scripts\ApplicationScripts\Genres.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -1920,6 +1921,7 @@
     <Content Include="Views\Shared\Pagination.cshtml" />
     <Content Include="Views\Authors\GetAuthorBooks.cshtml" />
     <Content Include="Views\Genres\GetGenreBooks.cshtml" />
+    <Content Include="Views\Genres\DeleteGenreModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

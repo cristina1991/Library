@@ -10,6 +10,7 @@ namespace Services.Abstract
     public interface IGenreBookLinksService
     {
         void AddGenreBookLink(GenreBookLink genreBookLink);
+        void DeleteGenreBookLink(int genreId, int bookId);
         IEnumerable<Genre> GetAllGenresByBookId(int bookId);
         IEnumerable<Book> GetAllBooksByGenreId(int genreId);
     }

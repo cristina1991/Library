@@ -12,6 +12,7 @@
         <div class="row">
             <div class="button-right col-md-offset-9 col-md-3 ">
                 @Html.ActionLink("Modifica", "Edit", new { bookId = Model.Id }, new { @class = "btn btn-primary" })
+                <button id="deleteBook_@Model.Id" class="btn btn-primary deletesBook" type="button">Sterge</button>
             </div>
         </div>
         <hr />
@@ -55,18 +56,17 @@
                     <span>Pagini:</span>
                     @Html.DisplayFor(model => model.Pages)
                 </div>
-                <div class="book-description">
-                    <span>Descriere:</span>
-                    @Html.DisplayFor(model => model.Description)
-                </div>
+                
             </div>
         </div>
     </div>
+
     <div class="row reviews-container">
-       
+        <div class="book-review-title">Descriere:</div>
+        @Html.DisplayFor(model => model.Description)
+    </div>
 
-        
-
+    <div class="row reviews-container">
         <div class="book-review-title">
             <span>Recenzii</span> 
             <div class="plus-review">
@@ -86,7 +86,6 @@
         {
             <div class="no-content-div">
                 Nu exista recenzii pentru aceasta carte.
-                
             </div>
         }
 
@@ -105,6 +104,10 @@
     </div>
     <hr />
     @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+</div>
+
+<div class="infoModal">
+    @Html.Partial("DeleteBookModal")
 </div>
 
 

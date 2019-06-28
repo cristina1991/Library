@@ -88,7 +88,21 @@ namespace Library.MVC.Controllers
         public ActionResult Delete(int authorId)
         {
             var author = authorService.GetAuthorById(authorId);
+
+            var genresList = genreAuthorLinkService.GetAllGenresByAuthorId(author.Id);
+            foreach (var genre in genresList)
+            {
+                genreAuthorLinkService.DeleteGenreAuthorLink(genre.Id, author.Id);
+            }
+
+            var bookList = authorBookLinksService.GetBooksByAuthorId(authorId);
+            foreach (var book in bookList)
+            {
+                authorBookLinksService.DeleteAuthorBookLink(author.Id, book.Id);
+            }
+
             authorService.DeleteAuthor(author);
+
             return RedirectToAction("Index");
         }
 

@@ -23,6 +23,11 @@ namespace Services.Concrete
             authorBookLinkRepo.AddAuthorBookLink(authorBookLink);
         }
 
+        public void DeleteAuthorBookLink(int authorId, int bookId)
+        {
+            authorBookLinkRepo.DeleteAuthorBookLink(authorId, bookId);
+        }
+
         public IEnumerable<Author> GetAuthorsByBookId(int bookId)
         {
             return authorBookLinkRepo.GetAuthorsByBookId(bookId);

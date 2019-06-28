@@ -10,6 +10,7 @@ namespace Services.Abstract
     public interface IAuthorBookLinksService
     {
         void AddAuthorBookLink(AuthorBookLink authorBookLink);
+        void DeleteAuthorBookLink(int authorId, int bookId);
         IEnumerable<Book> GetBooksByAuthorId(int authorId);
         IEnumerable<Author> GetAuthorsByBookId(int bookId);
     }
