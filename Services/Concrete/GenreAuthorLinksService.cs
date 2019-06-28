@@ -23,12 +23,12 @@ namespace Services.Concrete
             genreAuthorLinkRepo.AddGenreAuthorLink(genreAuthorLink);
         }
 
-        public IEnumerable<Author> GetAllAuthorsByGenreId(int genreId)
+        public ICollection<Author> GetAllAuthorsByGenreId(int genreId)
         {
             return genreAuthorLinkRepo.GetAllAuthorsByGenreId(genreId);
         }
 
-        public IEnumerable<Genre> GetAllGenresByAuthorId(int authorId)
+        public ICollection<Genre> GetAllGenresByAuthorId(int authorId)
         {
             return genreAuthorLinkRepo.GetAllGenresByAuthorId(authorId);
         }

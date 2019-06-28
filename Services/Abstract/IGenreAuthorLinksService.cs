@@ -10,7 +10,7 @@ namespace Services.Abstract
     public interface IGenreAuthorLinksService
     {
         void AddGenreAuthorLink(GenreAuthorLink genreAuthorLink);
-        IEnumerable<Genre> GetAllGenresByAuthorId(int authorId);
-        IEnumerable<Author> GetAllAuthorsByGenreId(int genreId);
+        ICollection<Genre> GetAllGenresByAuthorId(int authorId);
+        ICollection<Author> GetAllAuthorsByGenreId(int genreId);
     }
 }

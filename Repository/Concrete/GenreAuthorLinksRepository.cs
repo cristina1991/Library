@@ -22,12 +22,12 @@ namespace Repository.Concrete
             Save();
         }
 
-        public IEnumerable<Author> GetAllAuthorsByGenreId(int genreId)
+        public ICollection<Author> GetAllAuthorsByGenreId(int genreId)
         {
             return db.GenreAuthorLink.Where(x => x.GenreId == genreId).Select(x => x.Author).ToList();
         }
 
-        public IEnumerable<Genre> GetAllGenresByAuthorId(int authorId)
+        public ICollection<Genre> GetAllGenresByAuthorId(int authorId)
         {
             return db.GenreAuthorLink.Where(x => x.AuthorId == authorId).Select(x => x.Genre).ToList();
         }

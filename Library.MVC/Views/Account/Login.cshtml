@@ -9,7 +9,7 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Foloseste un cont pentru a te loga.</h4>
+                <h4>Foloseste un cont pentru a putea accesa acest site.</h4>
                 <hr />
                 <div class="col-md-2"></div>
                 <div class="col-md-10 login-container">
@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Logare" class="btn btn-primary" />
-                            @Html.ActionLink("Inregistrare", "Register", null, new { @class = "btn btn-default register-form-btn" })
+                            @Html.ActionLink("Inregistrare", "Register", null, new { @class = "btn btn-info register-form-btn" })
                         </div>
                     </div>
                     <p>

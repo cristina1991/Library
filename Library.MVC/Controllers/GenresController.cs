@@ -4,13 +4,16 @@ using Services.Abstract;
 
 namespace Library.MVC.Controllers
 {
+    [Authorize]
     public class GenresController : Controller
     {
         private IGenreService genreService;
+        private IGenreBookLinksService genreBookLinksService;
 
-        public GenresController(IGenreService genreService)
+        public GenresController(IGenreService genreService, IGenreBookLinksService genreBookLinksService)
         {
             this.genreService = genreService;
+            this.genreBookLinksService = genreBookLinksService;
         }
 
         // GET: Genres
@@ -58,6 +61,14 @@ namespace Library.MVC.Controllers
             {
                 return View(genre);
             }
+        }
+
+        public ActionResult GetGenreBooks(int genreId)
+        {
+            var genre = genreService.GetGenreById(genreId);
+            ViewBag.GenreHeader = "Carti care apartin genului " + genre.Name.ToLower() + ":";
+            var books = genreBookLinksService.GetAllBooksByGenreId(genreId);
+            return View(books);
         }
 
     }

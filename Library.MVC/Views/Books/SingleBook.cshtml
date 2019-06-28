@@ -1,17 +1,21 @@
 ﻿@model Library.Data.Entities.Book
 
+@using Library.Data.Utils;
+
 @{ 
     ViewBag.Title = "Book";
 }
 
 <div class="row site-container">
-    <div class="row">
-        <div class="page-title col-md-9">@*Book*@</div>
-        <div class="button-right col-md-3">
-            @Html.ActionLink("Modifica", "Edit", new { bookId = Model.Id }, new { @class = "btn btn-primary" })
+    @if (User.IsInRole(UserRoles.Admin))
+    {
+        <div class="row">
+            <div class="button-right col-md-offset-9 col-md-3 ">
+                @Html.ActionLink("Modifica", "Edit", new { bookId = Model.Id }, new { @class = "btn btn-primary" })
+            </div>
         </div>
-    </div>
-    <hr />
+        <hr />
+    }
 
     <div class="row singleBookContainer">
         <div class="col-md-6 singleBookPhoto">

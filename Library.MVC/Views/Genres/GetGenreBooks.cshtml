@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Book>
+
+@using Library.Data.Entities;
+@using Services.Models;
+@using Library.Data.Utils;
+
+
+@{
+    ViewBag.Title = "Books";
+}
+
+<div class="row site-container">
+    <div class="page-title">@ViewBag.GenreHeader</div>
+    <hr />
+    <div class="row all-books-container">
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("SingleBook", "Books", new { bookId = item.Id })">
+                <div class="col-md-2 booksContainer" id="bookContainer_@item.Id">
+                    <div class="bordered-entity">
+                        <img class="bookImage" src="@item.ImgPath" />
+                        <div class="index-book-details">
+                            <div class="row entity-rows">
+                                @item.Title
+                            </div>
+
+                            <div class="row entity-rows">
+                                @item.Author.Name
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+
+    </div>
+</div>
+
+
+
+
+
+

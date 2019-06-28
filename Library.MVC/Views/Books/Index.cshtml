@@ -2,11 +2,12 @@
 
 @using Library.Data.Entities;
 @using Services.Models;
+@using Library.Data.Utils;
+
 
 @{ 
     ViewBag.Title = "Books";
 }
-
 
 <div class="row site-container">
     <div class="row every-page-header">
@@ -20,9 +21,13 @@
             }
         </div>
 
-        <div class="button-right col-md-2">
-            @Html.ActionLink("Adauga o carte", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
-        </div>
+        @if (User.IsInRole(UserRoles.Admin))
+        {
+            <div class="button-right col-md-2">
+                @Html.ActionLink("Adauga o carte", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
+            </div>
+        }
+
     </div>
     <div class="row all-books-container">
         @foreach (var item in Model)
@@ -33,21 +38,12 @@
                         <img class="bookImage" src="@item.ImgPath" />
                         <div class="index-book-details">
                             <div class="row entity-rows">
-                                @*<div class="col-md-3">Titlu:</div>
-                                <div class="col-md-9">@item.Title</div>*@
                                 @item.Title
                             </div>
 
                             <div class="row entity-rows">
-                                @*<div class="col-md-3">Autor:</div>
-                                <div class="col-md-9">@item.Author.Name</div>*@
                                 @item.Author.Name
                             </div>
-
-                            @*<div class="row entity-rows">
-                                <div class="col-md-3">Gen:</div>
-                                <div class="col-md-9">@item.Genre.Name</div>
-                            </div>*@
                         </div>
                     </div>
                 </div>
@@ -73,31 +69,6 @@
     @Html.Partial("DeleteBookModal")
 </div>
 
-@*<table class="table">
-    <tr>
-        <th> @Html.Label("Title") </th>
-        <th> @Html.Label("Genre") </th>
-        <th> @Html.Label("Author") </th>
-        <th> @Html.Label("Description") </th>
-        <th> @Html.Label("Release") </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td> @item.Title </td>
-            <td> @item.Genre.Name </td>
-            <td> @item.Author.LastName @item.Author.FirstName </td>
-            <td> @item.Description </td>
-            <td> @item.Release </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { bookId = item.Id })
-                <button id="deleteBook_@item.Id" class="btn-primary deletesBook" type="button">Delete</button>
-            </td>
-        </tr>
-    }
-</table>*@
 
 
 

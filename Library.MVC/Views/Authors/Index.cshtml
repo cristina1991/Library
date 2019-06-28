@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Library.Data.Entities.Author>
 
+@using Library.Data.Utils;
+
 @{ 
     ViewBag.Title = "Authors";
 }
@@ -7,9 +9,12 @@
 <div class="row site-container">
     <div class="row every-page-header">
         <div class="page-title col-md-9">Autori</div>
-        <div class="button-right col-md-3">
-            @Html.ActionLink("Adauga un autor", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
-        </div>
+        @if (User.IsInRole(UserRoles.Admin))
+        {
+            <div class="button-right col-md-3">
+                @Html.ActionLink("Adauga un autor", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
+            </div>
+        }
     </div>
     <table class="table">
         <tr>
@@ -28,17 +33,23 @@
             <th>
                 @Html.Label("Imagine")
             </th>
-            <th></th>
+            @if (User.IsInRole(UserRoles.Admin))
+            {
+                <th></th>
+            }
         </tr>
 
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                <td class="get-author-books">
+                    @Html.ActionLink(@item.Name,"GetAuthorBooks", new { authorId = item.Id })
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Genres)
+                    @foreach (var genre in item.Genres)
+                    {
+                        <span>@genre.Name</span>
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Born)
@@ -56,12 +67,15 @@
                         <img src="@item.ImgPath" alt="author" />
                     }
                 </td>
-                <td class="">
-                    <div class="action-buttons-right">
-                        @Html.ActionLink("Modifica", "Edit", new { authorId = item.Id }, new { @class = "btn btn-primary" })
-                        <button id="deleteAuthor_@item.Id" class="btn btn-primary deletesAuthor" type="button">Sterge</button>
-                    </div>
-                </td>
+                @if (User.IsInRole(UserRoles.Admin))
+                {
+                    <td>
+                        <div class="action-buttons-right">
+                            @Html.ActionLink("Modifica", "Edit", new { authorId = item.Id }, new { @class = "btn btn-primary" })
+                            <button id="deleteAuthor_@item.Id" class="btn btn-primary deletesAuthor" type="button">Sterge</button>
+                        </div>
+                    </td>
+                }
             </tr>
         }
 

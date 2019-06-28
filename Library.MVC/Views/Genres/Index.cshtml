@@ -1,37 +1,48 @@
 ﻿@model IEnumerable<Library.Data.Entities.Genre>
 
+@using Library.Data.Utils;
+
 @{
     ViewBag.Title = "Genre";
 }
 
 <div class="row site-container">
     <div class="row every-page-header">
-        <div class="page-title col-md-9">Genres</div>
-        <div class="button-right col-md-3">
-            @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
-        </div>
+        <div class="page-title col-md-9">Genuri</div>
+        @if (User.IsInRole(UserRoles.Admin))
+        {
+            <div class="button-right col-md-3">
+                @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
+            </div>
+        }
     </div>
 
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.Label("Nume")
             </th>
-            <th></th>
+            @if (User.IsInRole(UserRoles.Admin))
+            {
+                <th></th>
+            }
         </tr>
 
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                <td class="get-author-books">
+                    @Html.ActionLink(@item.Name, "GetGenreBooks", new { genreId = item.Id})
                 </td>
-                <td>
-                    <div class="action-buttons-right">
-                        @Html.ActionLink("Edit", "Edit", new { genreId = item.Id }, new { @class = "btn btn-primary" })
-                        <button id="deleteGenre_@item.Id" class="btn btn-primary deletesGenre" type="button">Delete</button>
-                    </div>
-                </td>
+                @if (User.IsInRole(UserRoles.Admin))
+                {
+                    <td>
+                        <div class="action-buttons-right">
+                            @Html.ActionLink("Edit", "Edit", new { genreId = item.Id }, new { @class = "btn btn-primary" })
+                            <button id="deleteGenre_@item.Id" class="btn btn-primary deletesGenre" type="button">Delete</button>
+                        </div>
+                    </td>
+                }
             </tr>
         }
 

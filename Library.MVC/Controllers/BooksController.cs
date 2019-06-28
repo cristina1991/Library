@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace UniLibrary.Controllers
 { 
+    [Authorize]
     public class BooksController : Controller
     {
         private IBookService bookService;

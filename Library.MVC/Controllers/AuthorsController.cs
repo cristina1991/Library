@@ -6,22 +6,42 @@ using System.IO;
 using Library.MVC.Utils;
 using Library.MVC.Properties;
 using System;
+using System.Collections.Generic;
 
 namespace Library.MVC.Controllers
 {
+    [Authorize]
     public class AuthorsController : Controller
     {
         private IAuthorService authorService;
+        private IGenreAuthorLinksService genreAuthorLinkService;
+        private IAuthorBookLinksService authorBookLinksService;
 
-        public AuthorsController(IAuthorService authorService)
+        public AuthorsController(IAuthorService authorService, IGenreAuthorLinksService genreAuthorLinkService, IAuthorBookLinksService authorBookLinksService)
         {
             this.authorService = authorService;
+            this.genreAuthorLinkService = genreAuthorLinkService;
+            this.authorBookLinksService = authorBookLinksService;
         }
 
         // GET: Author
         public ActionResult Index()
         {
             var authors = authorService.GetAllAuthors();
+            foreach (var author in authors)
+            {
+                var genresList = new List<Genre>(); ;
+                var initialList = genreAuthorLinkService.GetAllGenresByAuthorId(author.Id);
+                foreach (var item in initialList)
+                {
+                    if (!genresList.Contains(item))
+                    {
+                        genresList.Add(item);
+                    }
+                }
+                author.Genres = genresList;
+            }
+
             return View(authors);
         }
 
@@ -70,6 +90,14 @@ namespace Library.MVC.Controllers
             var author = authorService.GetAuthorById(authorId);
             authorService.DeleteAuthor(author);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult GetAuthorBooks(int authorId)
+        {
+            var author = authorService.GetAuthorById(authorId);
+            ViewBag.AuthorHeader = "Carti scrise de " + author.Name + ": ";
+            var books = authorBookLinksService.GetBooksByAuthorId(authorId);
+            return View(books);
         }
 
         public ActionResult UploadAuthorPhoto(HttpPostedFileBase[] files, int authorId)

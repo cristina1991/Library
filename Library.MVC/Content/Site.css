@@ -121,7 +121,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .register-form-btn{
-    margin-left:230px;
+    margin-left:260px;
 }
 
 footer p{
@@ -404,3 +404,11 @@ footer p{
     .plus-review i:hover {
         cursor: pointer;
     }
+
+.get-author-books a {
+    color: #000099;
+}
+
+.get-author-books a:hover{
+    text-decoration:none;
+}

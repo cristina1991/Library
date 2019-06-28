@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.Data.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Library.MVC.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -13,18 +15,13 @@ namespace Library.MVC.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult CheckFirstRedirect()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            if (User.IsInRole(UserRoles.Admin) || User.IsInRole(UserRoles.User))
+            {
+                RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("Login", "Account");
         }
     }
 }
