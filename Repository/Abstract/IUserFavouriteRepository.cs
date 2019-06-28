@@ -10,6 +10,7 @@ namespace Repository.Abstract
     public interface IUserFavouriteRepository
     {
         void AddUserFavourite(UserFavourites userFavourite);
+        void DeleteUserFavourite(int bookId, string userId);
         ICollection<Book> GetAllFavouritesByUserId(string userId);
         void Save();
     }

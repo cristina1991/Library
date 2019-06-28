@@ -8,13 +8,7 @@
 
 <div class="row site-container">
     <div class="row every-page-header">
-        <div class="page-title col-md-9">Autori</div>
-        @if (User.IsInRole(UserRoles.Admin))
-        {
-            <div class="button-right col-md-3">
-                @Html.ActionLink("Adauga un autor", "Create", null, htmlAttributes: new { @class = "btn btn-primary actions-btn" })
-            </div>
-        }
+        <div class="page-title col-md-11">Autori</div>
     </div>
     <table class="table">
         <tr>
@@ -23,12 +17,6 @@
             </th>
             <th>
                 @Html.Label("Categorie")
-            </th>
-            <th>
-                @Html.Label("Nascut in")
-            </th>
-            <th>
-                @Html.Label("Oras")
             </th>
             <th>
                 @Html.Label("Imagine")
@@ -48,15 +36,15 @@
                 <td>
                     @foreach (var genre in item.Genres)
                     {
-                        <span>@genre.Name</span>
+                        <span>@genre.Name</span><br />
                     }
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Born)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.City)
-                </td>
+                </td>*@
                 <td class="index-author-image">
                     @if (item.ImgPath == null)
                     {

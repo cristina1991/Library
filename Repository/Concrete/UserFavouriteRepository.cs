@@ -24,6 +24,13 @@ namespace Repository.Concrete
             Save();
         }
 
+        public void DeleteUserFavourite(int bookId, string userId)
+        {
+            var userFavourite = db.UserFavourites.Where(x => x.BookId == bookId && x.UserId == userId).FirstOrDefault();
+            db.UserFavourites.Remove(userFavourite);
+            Save();
+        }
+
         public ICollection<Book> GetAllFavouritesByUserId(string userId)
         {
             return db.UserFavourites.Where(x => x.UserId == userId).Select(x=>x.Book).ToList();

@@ -23,6 +23,11 @@ namespace Services.Concrete
             userFavouriteRepo.AddUserFavourite(userFavourite);
         }
 
+        public void DeleteUserFavourite(int bookId, string userId)
+        {
+            userFavouriteRepo.DeleteUserFavourite(bookId, userId);
+        }
+
         public ICollection<Book> GetAllFavouritesByUserId(string userId)
         {
             return userFavouriteRepo.GetAllFavouritesByUserId(userId);

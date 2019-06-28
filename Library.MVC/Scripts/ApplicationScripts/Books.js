@@ -64,7 +64,6 @@ $(document).on('change', "#inputBookPhotoUpload", function () {
         data: bookData,
         success: function (res) {
             if (res.success == true) {
-                alert("Photo succesfully uploaded");
                 location.reload();
             }
         },

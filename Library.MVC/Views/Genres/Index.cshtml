@@ -8,13 +8,7 @@
 
 <div class="row site-container">
     <div class="row every-page-header">
-        <div class="page-title col-md-9">Genuri</div>
-        @if (User.IsInRole(UserRoles.Admin))
-        {
-            <div class="button-right col-md-3">
-                @Html.ActionLink("Categorie noua", "Create", null, htmlAttributes: new { @class = "btn btn-success actions-btn" })
-            </div>
-        }
+        <div class="page-title col-md-11">Categorii</div>
     </div>
 
     <table class="table">

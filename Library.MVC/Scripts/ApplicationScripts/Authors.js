@@ -21,7 +21,6 @@ $(document).on('change', "#inputAuthorPhotoUpload", function () {
         data: authorData,
         success: function (res) {
             if (res.success == true) {
-                alert("Photo succesfully uploaded");
                 location.reload();
             }
         },

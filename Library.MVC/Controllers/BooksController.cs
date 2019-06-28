@@ -166,15 +166,26 @@ namespace UniLibrary.Controllers
         public void AddFavourite(int bookId)
         {
             var book = bookService.FindBookById(bookId);
-            book.IsFavourite = true;
-            bookService.UpdateBook(book);
-
             var userId = User.Identity.GetUserId();
 
-            var userFavourite = new UserFavourites();
-            userFavourite.BookId = bookId;
-            userFavourite.UserId = userId;
-            userFavouriteService.AddUserFavourite(userFavourite);
+            if (!book.IsFavourite.Value)
+            {
+                book.IsFavourite = true;
+                bookService.UpdateBook(book);
+
+                var userFavourite = new UserFavourites();
+                userFavourite.BookId = bookId;
+                userFavourite.UserId = userId;
+                userFavouriteService.AddUserFavourite(userFavourite);
+            }
+            else
+            {
+                book.IsFavourite = false;
+                bookService.UpdateBook(book);
+
+                userFavouriteService.DeleteUserFavourite(bookId, userId);
+            }
+           
         }
 
         public ActionResult AddAuthor(string authorName)
