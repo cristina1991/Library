@@ -6,8 +6,8 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    border-left: 1px solid #eaeaea;
-    border-right: 1px solid #eaeaea;
+    border-left:2px solid #eaeaea;
+    border-right: 2px solid #eaeaea;
     background: white;
     color: #3d3d3d;
 }
@@ -73,7 +73,6 @@ textarea {
 
 .site-container{
     padding:30px 40px;
-    border:1px solid #ccc;
     min-height:580px;
 }
 
@@ -226,7 +225,7 @@ footer p{
 
     .singleBookPhoto img {
         height: 400px;
-        border: 1px solid black;
+        border: 1px solid #7b7b7b;
         width: 280px;
         border-radius: 2px;
     }
@@ -243,7 +242,10 @@ footer p{
 
 .book-title{
     font-size:22px!important;
+    font-weight:bold;
 }
+
+
 
 .book-additional-info{
    padding-top:90px;
