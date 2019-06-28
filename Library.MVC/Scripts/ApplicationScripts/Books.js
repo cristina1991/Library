@@ -105,7 +105,7 @@ $(document).on('click', '.favourite-book-icon', function () {
         url: getBaseUrl() + "AddFavourite",
         data: { bookId: bookId },
         success: function (res) {
-            alert('io');
+            location.reload();
         },
         error: function (error) {
             alert(error);

@@ -21,10 +21,11 @@ namespace UniLibrary.Controllers
         private IGenreBookLinksService genreBookLinksService;
         private IGenreAuthorLinksService genreAuthorLinksService;
         private IReviewService reviewService;
+        private IUserFavouriteService userFavouriteService;
 
         public BooksController(IBookService bookService, IGenreService genreService, IAuthorService authorService, 
                                IAuthorBookLinksService authorBookLinksService, IGenreBookLinksService genreBookLinksService, 
-                               IGenreAuthorLinksService genreAuthorLinksService, IReviewService reviewService)
+                               IGenreAuthorLinksService genreAuthorLinksService, IReviewService reviewService, IUserFavouriteService userFavouriteService)
         {
             this.bookService = bookService;
             this.genreService = genreService;
@@ -33,6 +34,7 @@ namespace UniLibrary.Controllers
             this.genreBookLinksService = genreBookLinksService;
             this.genreAuthorLinksService = genreAuthorLinksService;
             this.reviewService = reviewService;
+            this.userFavouriteService = userFavouriteService;
         }
 
         // GET: Books
@@ -72,6 +74,7 @@ namespace UniLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
+                book.IsFavourite = false;
                 bookService.AddBook(book);
 
                 //Adding AuthorToBook 
@@ -162,7 +165,16 @@ namespace UniLibrary.Controllers
 
         public void AddFavourite(int bookId)
         {
+            var book = bookService.FindBookById(bookId);
+            book.IsFavourite = true;
+            bookService.UpdateBook(book);
+
             var userId = User.Identity.GetUserId();
+
+            var userFavourite = new UserFavourites();
+            userFavourite.BookId = bookId;
+            userFavourite.UserId = userId;
+            userFavouriteService.AddUserFavourite(userFavourite);
         }
 
         public ActionResult AddAuthor(string authorName)

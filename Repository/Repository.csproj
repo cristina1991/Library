@@ -48,6 +48,7 @@
     <Compile Include="Abstract\IGenreBookLinksRepository.cs" />
     <Compile Include="Abstract\IGenreRepository.cs" />
     <Compile Include="Abstract\IReviewRepository.cs" />
+    <Compile Include="Abstract\IUserFavouriteRepository.cs" />
     <Compile Include="Concrete\AuthorBookLinkRepository.cs" />
     <Compile Include="Concrete\AuthorRepository.cs" />
     <Compile Include="Concrete\BookRepository.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Concrete\GenreBookLinksRepository.cs" />
     <Compile Include="Concrete\GenreRepository.cs" />
     <Compile Include="Concrete\ReviewRepository.cs" />
+    <Compile Include="Concrete\UserFavouriteRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

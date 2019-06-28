@@ -24,8 +24,14 @@
         </div>
         <div class="col-md-6 singleBookDetails">
             <div class="favourite-book-icon" id="favouriteBook_@Model.Id">
-                <i class="far fa-heart"></i>
-                @*<i class="fas fa-heart"></i> Full*@
+                @if (Model.IsFavourite.Value)
+                {
+                    <i class="fas fa-heart"></i>
+                }
+                else
+                {
+                    <i class="far fa-heart"></i>
+                }
             </div>
             <div class="book-title">
                 @Html.DisplayFor(model => model.Title)

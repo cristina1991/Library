@@ -48,8 +48,9 @@ namespace Library.MVC
             container.RegisterType<IGenreAuthorLinksRepository, GenreAuthorLinksRepository>();
             container.RegisterType<IGenreAuthorLinksService, GenreAuthorLinksService>();
 
-         
-           
+            container.RegisterType<IUserFavouriteRepository, UserFavouriteRepository>();
+            container.RegisterType<IUserFavouriteService, UserFavouriteService>();
+
 
             container.RegisterType<AccountController>(new InjectionConstructor());
 

@@ -180,6 +180,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\FavouritesController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -1922,6 +1923,7 @@
     <Content Include="Views\Authors\GetAuthorBooks.cshtml" />
     <Content Include="Views\Genres\GetGenreBooks.cshtml" />
     <Content Include="Views\Genres\DeleteGenreModal.cshtml" />
+    <Content Include="Views\Favourites\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

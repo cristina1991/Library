@@ -17,5 +17,6 @@ namespace Library.Data
         public DbSet<GenreBookLink> GenreBookLink { get; set; }
         public DbSet<AuthorBookLink> AuthorBookLink { get; set; }
         public DbSet<GenreAuthorLink> GenreAuthorLink { get; set; }
+        public DbSet<UserFavourites> UserFavourites { get; set; }
     }
 }

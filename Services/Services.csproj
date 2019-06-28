@@ -47,6 +47,7 @@
     <Compile Include="Abstract\IGenreBookLinksService.cs" />
     <Compile Include="Abstract\IGenreService.cs" />
     <Compile Include="Abstract\IReviewService.cs" />
+    <Compile Include="Abstract\IUserFavouriteService.cs" />
     <Compile Include="Concrete\AuthorBookLinksService.cs" />
     <Compile Include="Concrete\AuthorService.cs" />
     <Compile Include="Concrete\BookService.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Concrete\GenreBookLinksService.cs" />
     <Compile Include="Concrete\GenreService.cs" />
     <Compile Include="Concrete\ReviewService.cs" />
+    <Compile Include="Concrete\UserFavouriteService.cs" />
     <Compile Include="Models\Abstract\IPaginatedList.cs" />
     <Compile Include="Models\PaginatedList.cs" />
     <Compile Include="Models\PaginationModel.cs" />

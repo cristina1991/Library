@@ -106,6 +106,7 @@
     <Compile Include="Entities\UserEntities\AspNetUserRoles.cs" />
     <Compile Include="Entities\UserEntities\AspNetUsers.cs" />
     <Compile Include="Entities\UserEntities\AspNetUserTokens.cs" />
+    <Compile Include="Entities\UserFavourites.cs" />
     <Compile Include="Migrations\201906181040268_Initial.cs" />
     <Compile Include="Migrations\201906181040268_Initial.Designer.cs">
       <DependentUpon>201906181040268_Initial.cs</DependentUpon>
@@ -129,6 +130,10 @@
     <Compile Include="Migrations\201906271428277_NullableFavourite.cs" />
     <Compile Include="Migrations\201906271428277_NullableFavourite.Designer.cs">
       <DependentUpon>201906271428277_NullableFavourite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906281924366_AddingUserFavourites.cs" />
+    <Compile Include="Migrations\201906281924366_AddingUserFavourites.Designer.cs">
+      <DependentUpon>201906281924366_AddingUserFavourites.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906271428277_NullableFavourite.resx">
       <DependentUpon>201906271428277_NullableFavourite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906281924366_AddingUserFavourites.resx">
+      <DependentUpon>201906281924366_AddingUserFavourites.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
