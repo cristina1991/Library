@@ -7,6 +7,7 @@ using Library.MVC.Utils;
 using Library.MVC.Properties;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Library.MVC.Controllers
 {
@@ -42,7 +43,7 @@ namespace Library.MVC.Controllers
                 author.Genres = genresList;
             }
 
-            return View(authors);
+            return View(authors.OrderBy(x=>x.Name));
         }
 
         public ActionResult Create()

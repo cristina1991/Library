@@ -19,10 +19,21 @@
     }
 
     <div class="row singleBookContainer">
-        <div class="col-md-6 singleBookPhoto">
-            <img src="@Model.ImgPath" />
+        <div class="col-md-5">
+            @if (Model.ImgPath == null)
+            {
+                <div class="singleBookPhotoNoImg">
+                    <img src="@Model.ImgPath" />
+                </div>
+            }
+            else
+            {
+                <div class="singleBookPhoto">
+                    <img src="@Model.ImgPath" />
+                </div>
+            }
         </div>
-        <div class="col-md-6 singleBookDetails">
+        <div class="col-md-7 singleBookDetails">
             <div class="favourite-book-icon" id="favouriteBook_@Model.Id">
                 @if (Model.IsFavourite.Value)
                 {
@@ -109,7 +120,7 @@
 
     </div>
     <hr />
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Inapoi la carti", "Index", null, new { @class = "btn btn-default" })
 </div>
 
 <div class="infoModal">

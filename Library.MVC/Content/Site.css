@@ -140,7 +140,7 @@ footer p{
     width: 100%;
     border: 1px solid #cecece;
     margin: 10px 0;
-    min-height: 280px;
+    min-height: 290px;
     border-radius: 4px;
     padding-top: 15px;
     -webkit-box-shadow: 0px 10px 8px 0px rgba(0,0,0,0.09);
@@ -231,11 +231,17 @@ footer p{
       padding-bottom:40px;
 }
 
-.singleBookPhoto, .singleAuthorPhoto{
-    text-align:center;
+.singleBookPhoto, .singleAuthorPhoto, .singleBookPhotoNoImg, .singleAuthorPhotoNoImg {
+    text-align: center;
 }
 
     .singleBookPhoto img {
+        height: 420px;
+        width: 270px;
+        border-radius: 2px;
+    }
+
+    .singleBookPhotoNoImg img {
         height: 420px;
         border: 1px solid #7b7b7b;
         width: 270px;
@@ -244,7 +250,14 @@ footer p{
 
     .singleAuthorPhoto img {
         height: 200px;
-        width: 225px;
+        width: 200px;
+        border: 1px solid #ccc;
+    }
+
+    .singleAuthorPhotoNoImg img {
+        min-height: 200px;
+        min-width: 200px;
+        border: 1px solid #ccc;
     }
 
 .singleAuthorDetails{
@@ -263,6 +276,10 @@ footer p{
 
 .book-additional-info > div{
     margin-top:10px;
+}
+
+.edit-book-details{
+    margin-top:20px;
 }
 
 .singleBookContainer{

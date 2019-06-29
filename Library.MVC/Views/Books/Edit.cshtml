@@ -11,16 +11,27 @@
 
     <div class="row site-container">
         <div class="page-title">
-            Modifica
+            Modifică 
         </div>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
         <div class="row general-spacing-layout">
-            <div class="col-md-6 singleBookPhoto">
-                <img src="@Model.ImgPath"/>
+            <div class="col-md-5 ">
+                @if (Model.ImgPath == null)
+                {
+                    <div class="singleBookPhotoNoImg">
+                        <img src="@Model.ImgPath" />
+                    </div>
+                }
+                else
+                {
+                    <div class="singleBookPhoto">
+                        <img src="@Model.ImgPath" />
+                    </div>
+                }
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7 edit-book-details">
                 <div class="crud-book-layout">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="row form-group">

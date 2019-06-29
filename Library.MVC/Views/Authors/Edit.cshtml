@@ -10,15 +10,26 @@
 
     <div class="row site-container">
         <div class="page-title">
-            Modifica autor
+            Modifică 
         </div>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
         <div class="row single-author-container">
-            <div class="col-md-6 singleAuthorPhoto">
-                <img src="@Model.ImgPath" alt="author" />
+            <div class="col-md-6">
+                @if (Model.ImgPath == null)
+                {
+                    <div class="singleAuthorPhotoNoImg">
+                        <img src="@Model.ImgPath"/>
+                    </div>
+                }
+                else
+                {
+                    <div class="singleAuthorPhoto">
+                        <img src="@Model.ImgPath" alt="author" />
+                    </div>
+                }
             </div>
             <div class="col-md-6 singleAuthorDetails">
                 <div class="row form-group">

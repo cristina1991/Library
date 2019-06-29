@@ -13,14 +13,15 @@
     <table class="table">
         <tr>
             <th>
+                @Html.Label("Imagine")
+            </th>
+            <th>
                 @Html.Label("Nume")
             </th>
             <th>
                 @Html.Label("Categorie")
             </th>
-            <th>
-                @Html.Label("Imagine")
-            </th>
+          
             @if (User.IsInRole(UserRoles.Admin))
             {
                 <th></th>
@@ -30,6 +31,16 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td class="index-author-image">
+                    @if (item.ImgPath == null)
+                    {
+                        <img />
+                    }
+                    else
+                    {
+                        <img src="@item.ImgPath" alt="author" />
+                    }
+                </td>
                 <td class="get-author-books">
                     @Html.ActionLink(@item.Name,"GetAuthorBooks", new { authorId = item.Id })
                 </td>
@@ -39,22 +50,7 @@
                         <span>@genre.Name</span><br />
                     }
                 </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.Born)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>*@
-                <td class="index-author-image">
-                    @if (item.ImgPath == null)
-                    {
-                        <img/>
-                    }
-                    else
-                    {
-                        <img src="@item.ImgPath" alt="author" />
-                    }
-                </td>
+               
                 @if (User.IsInRole(UserRoles.Admin))
                 {
                     <td>

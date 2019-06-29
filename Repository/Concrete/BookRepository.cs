@@ -55,7 +55,7 @@ namespace Repository.Concrete
         {
             return db.Books.Where(x => (book=="" || (book != "" && x.Title.ToLower().Contains(book.ToLower()))) ||
                                        (author=="" || (author !="" && x.Author.Name.ToLower().Contains(author.ToLower())))
-                                  ).ToList();
+                                  ).OrderByDescending(a=>a.Id).ToList();
         }
     }
 }

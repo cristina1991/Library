@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Library.Data.Entities;
 using Services.Abstract;
+using System.Linq;
 
 namespace Library.MVC.Controllers
 {
@@ -19,7 +20,7 @@ namespace Library.MVC.Controllers
         // GET: Genres
         public ActionResult Index()
         {
-            var genres = genreService.GetAllGenres();
+            var genres = genreService.GetAllGenres().OrderBy(x=>x.Name);
             return View(genres);
         }
 
