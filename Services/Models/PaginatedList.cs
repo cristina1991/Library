@@ -17,7 +17,7 @@ namespace Services.Models
 
         public PaginatedList() { }
 
-        public PaginatedList(List<T> source, int pageIndex, int pageSize = 10, int windowSize = 10)
+        public PaginatedList(List<T> source, int pageIndex, int pageSize = 12, int windowSize = 12)
         {
             PageIndex = pageIndex;
             PageSize = pageSize;

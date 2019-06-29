@@ -55,7 +55,7 @@ namespace UniLibrary.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var books = bookService.GetBookFilteredList(searchString, searchString, page ?? 1, 18);
+            var books = bookService.GetBookFilteredList(searchString, searchString, page ?? 1, 12);
             return View(books);
         }
 

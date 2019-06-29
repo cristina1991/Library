@@ -37,7 +37,7 @@ namespace Services.Concrete
             return bookRepo.GetAllBooks();
         }
 
-        public PaginatedList<Book> GetBookFilteredList(string author="", string book="", int pageNo=1, int pageSize=18)
+        public PaginatedList<Book> GetBookFilteredList(string author = "", string book = "", int pageNo = 1, int pageSize = 12)
         {
             List<Book> books = bookRepo.GetBooksFilteredList(author, book).ToList();
             var paginatedResults = new PaginatedList<Book>(books, pageNo, pageSize);

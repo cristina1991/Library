@@ -7,9 +7,9 @@ namespace Library.Data.Entities
     public class Book : IEntity
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Introducerea unui titlu este obligatorie")]
         public string Title { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Introducerea unei edituri este obligatorie")]
         public string Publisher { get; set; }
         public string Description { get; set; }
         public int Release { get; set; }
@@ -20,10 +20,12 @@ namespace Library.Data.Entities
 
         public ICollection<Review> Reviews { get; set; }
 
+        [Required(ErrorMessage ="Selectarea unei categorii este obligatorie")]
         public int GenreId { get; set; }
         [ForeignKey("GenreId")]
         public virtual Genre Genre { get; set; }
 
+        [Required(ErrorMessage = "Selectarea unui autor este obligatorie")]
         public int AuthorId { get; set; }
         [ForeignKey("AuthorId")]
         public virtual Author Author { get; set; }
