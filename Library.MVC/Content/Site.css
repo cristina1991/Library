@@ -104,8 +104,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top:50px;
 }
 
-.form-control{
-    min-width:360px;
+.form-control {
+    min-width: 360px;
 }
 
 .all-books-container .col-md-2{
@@ -121,11 +121,15 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .register-form-btn{
-    margin-left:260px;
+    margin-left:190px;
 }
 
 footer p{
     text-align:center;
+}
+
+.crud-book-layout{
+    padding-left:45px;
 }
 
 .bordered-entity {
